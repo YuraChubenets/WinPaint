@@ -1,0 +1,22 @@
+C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\bin\Debug\WinPaint.exe.config
+C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\bin\Debug\WinPaint.exe
+C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\bin\Debug\WinPaint.pdb
+C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.csprojResolveAssemblyReference.cache
+C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
+C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
+C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.exe
+C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.pdb
+C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\bin\Debug\WinPaint.BL.dll
+C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\bin\Debug\WinPaint.BL.pdb
+C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.MainForm.resources
+C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\bin\Debug\WinPaint.exe.config
+C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\obj\Debug\WinPaint.exe
+C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\obj\Debug\WinPaint.pdb
+C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\bin\Debug\WinPaint.exe
+C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\bin\Debug\WinPaint.pdb
+C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\bin\Debug\WinPaint.BL.dll
+C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\bin\Debug\WinPaint.BL.pdb
+C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\obj\Debug\WinPaint.csprojResolveAssemblyReference.cache
+C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\obj\Debug\WinPaint.MainForm.resources
+C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
+C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
