@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinPaint.BL;
 
 namespace WinPaint
 {
@@ -38,11 +39,9 @@ namespace WinPaint
         bool choose = false;           
         int x, y, lx, ly = 0;
         float bw = 1.0f;
-        Item currentItem;
-
+       
         List<TwoPoint> twoPoint = new List<TwoPoint> { };
-
-        
+        Item currentItem;
 
         public MainForm()
         {
@@ -111,25 +110,24 @@ namespace WinPaint
             twoPoint.Add(new TwoPoint( new Point(x, y), new Point(lx, ly), currentColor));
         }
 
-
-        private void pictureBox2_MouseMove(object sender, MouseEventArgs e)
+        private void btnChCol_Click(object sender, EventArgs e)
         {
-            if (isdraw)
+            DialogResult d = colorDialog1.ShowDialog();
+            if( d == DialogResult.OK)
             {
-                Bitmap bmp = (Bitmap)pictureBox2.Image.Clone();
-                currentColor = bmp.GetPixel(e.X, e.Y);
+                currentColor = colorDialog1.Color;
                 pictureBox3.BackColor = currentColor;
             }
         }
 
-        private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
+        private void btnCreateNew_Click(object sender, EventArgs e)
         {
-            isdraw = true;
-        }
+            pictureBox1.Paint -= PictureBox1_Paint;            
+            twoPoint.Clear();
+            pictureBox1.Refresh();
+            pictureBox1.Paint += PictureBox1_Paint;
 
-        private void pictureBox2_MouseUp(object sender, MouseEventArgs e)
-        {
-            isdraw = false;
+
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)

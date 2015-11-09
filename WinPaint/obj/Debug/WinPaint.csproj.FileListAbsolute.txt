@@ -20,3 +20,14 @@ C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\obj\Debug\WinPaint.cspr
 C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\obj\Debug\WinPaint.MainForm.resources
 C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
 C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
+D:\WinPaint\WinPaint\bin\Debug\WinPaint.exe.config
+D:\WinPaint\WinPaint\bin\Debug\WinPaint.exe
+D:\WinPaint\WinPaint\bin\Debug\WinPaint.pdb
+D:\WinPaint\WinPaint\bin\Debug\WinPaint.BL.dll
+D:\WinPaint\WinPaint\bin\Debug\WinPaint.BL.pdb
+D:\WinPaint\WinPaint\obj\Debug\WinPaint.csprojResolveAssemblyReference.cache
+D:\WinPaint\WinPaint\obj\Debug\WinPaint.MainForm.resources
+D:\WinPaint\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
+D:\WinPaint\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
+D:\WinPaint\WinPaint\obj\Debug\WinPaint.exe
+D:\WinPaint\WinPaint\obj\Debug\WinPaint.pdb

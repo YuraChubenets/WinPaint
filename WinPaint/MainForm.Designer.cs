@@ -33,14 +33,14 @@
             this.btnOpen = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCreateNew = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblCoorX = new System.Windows.Forms.Label();
             this.lblCoorY = new System.Windows.Forms.Label();
             this.lblX = new System.Windows.Forms.Label();
             this.lblY = new System.Windows.Forms.Label();
+            this.btnChCol = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,19 +95,7 @@
             this.btnCreateNew.TabIndex = 4;
             this.btnCreateNew.Text = "New";
             this.btnCreateNew.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::WinPaint.Properties.Resources.ColorWheel;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 83);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(126, 126);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseDown);
-            this.pictureBox2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseMove);
-            this.pictureBox2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseUp);
+            this.btnCreateNew.Click += new System.EventHandler(this.btnCreateNew_Click);
             // 
             // pictureBox3
             // 
@@ -158,17 +146,27 @@
             this.lblY.TabIndex = 11;
             this.lblY.Text = "0";
             // 
+            // btnChCol
+            // 
+            this.btnChCol.Location = new System.Drawing.Point(3, 88);
+            this.btnChCol.Name = "btnChCol";
+            this.btnChCol.Size = new System.Drawing.Size(126, 53);
+            this.btnChCol.TabIndex = 12;
+            this.btnChCol.Text = "Choose color";
+            this.btnChCol.UseVisualStyleBackColor = true;
+            this.btnChCol.Click += new System.EventHandler(this.btnChCol_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 361);
+            this.Controls.Add(this.btnChCol);
             this.Controls.Add(this.lblY);
             this.Controls.Add(this.lblX);
             this.Controls.Add(this.lblCoorY);
             this.Controls.Add(this.lblCoorX);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnCreateNew);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnOpen);
@@ -178,7 +176,6 @@
             this.Name = "MainForm";
             this.Text = "WinPaint";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -192,12 +189,13 @@
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCreateNew;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lblCoorX;
         private System.Windows.Forms.Label lblCoorY;
         private System.Windows.Forms.Label lblX;
         private System.Windows.Forms.Label lblY;
+        private System.Windows.Forms.Button btnChCol;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 

@@ -1,12 +1,13 @@
 ﻿using System.Drawing;
 
-namespace WinPaint
+namespace WinPaint.BL
 {
     public class TwoPoint
     {
         public Point X;
         public Point Y;
         public Color color;
+
         public TwoPoint(Point X, Point Y, Color color)
         {
             this.X = X;

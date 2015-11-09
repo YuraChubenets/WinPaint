@@ -16,11 +16,13 @@ namespace WinPaint.BL
         Image GetImage(string imagePath);
         void SaveImage(Image img, string filename);
         string GetCurrentPath();
+    
         
     }
 
     public   class PaintManager : IPaintManager
     {
+ 
         public string GetCurrentPath()
         {
             return System.IO.Directory.GetCurrentDirectory();
