@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinPaint.BL;
@@ -19,9 +20,12 @@ namespace WinPaint
         //content
         Bitmap Image { get; set; }
 
+        void SetImageInvert(Image image);
+
         event EventHandler ImageOpenClick;
         event EventHandler ImageSaveClick;
         event EventHandler ImageChanged;
+        event EventHandler ImageProcessInvert;
     }
 
     public partial class MainForm : Form, IWinPaint
@@ -39,7 +43,7 @@ namespace WinPaint
         bool choose = false;           
         int x, y, lx, ly = 0;
         float bw = 1.0f;
-       
+      
         List<TwoPoint> twoPoint = new List<TwoPoint> { };
         Item currentItem;
 
@@ -50,11 +54,37 @@ namespace WinPaint
             btnOpen.Click += btnOpen_Click;
             btnSave.Click += BtnSave_Click;
             pictureBox1.Paint += PictureBox1_Paint;
+            this.Load += MainForm_Load;
         }
 
-      
-        
-        #region IWinPaint
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            Action action = () => {
+
+                while (true)
+                {
+                    Invoke((Action)(() => lblOclock.Text = DateTime.Now.ToLongTimeString()));
+                    Thread.Sleep(1000);
+                }
+
+            };
+
+            Task task = new Task(action);
+            task.Start();
+        }
+
+
+
+        #region IWinPaint  
+        public void SetImageInvert(Image image)
+        {
+            this.InvokeEx(()=> {
+                 pictureBox1.Image = image;
+            });
+           
+
+        } 
+
         public string GetImagePath
         {
             get
@@ -79,6 +109,7 @@ namespace WinPaint
         public event EventHandler ImageOpenClick;
         public event EventHandler ImageSaveClick;
         public event EventHandler ImageChanged;
+        public event EventHandler ImageProcessInvert;
 
         #endregion
 
@@ -87,8 +118,7 @@ namespace WinPaint
         {
             if (ImageChanged != null)
                 ImageChanged(this, EventArgs.Empty);
-            //-------------          
-
+            //-------------         
             e.Graphics.DrawLine( new Pen(currentColor), new Point(x, y), new Point(lx, ly));
 
             foreach(var p in twoPoint)
@@ -100,6 +130,7 @@ namespace WinPaint
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             isdraw = true;
+            //current coord
             x = e.X;
             y = e.Y;
         }
@@ -126,8 +157,16 @@ namespace WinPaint
             twoPoint.Clear();
             pictureBox1.Refresh();
             pictureBox1.Paint += PictureBox1_Paint;
+        }
 
+        private void btnInvert_Click(object sender, EventArgs e)
+        {
+            btnInvert.Enabled = false;
 
+            if (ImageProcessInvert != null)
+                ImageProcessInvert(this, EventArgs.Empty);
+
+            btnInvert.Enabled = true;
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)

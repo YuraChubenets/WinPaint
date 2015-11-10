@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnOpen = new System.Windows.Forms.Button();
@@ -40,8 +41,23 @@
             this.lblY = new System.Windows.Forms.Label();
             this.btnChCol = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripBtnPencil = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnLine = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnRectangl = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnRound = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripBtnErase = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnInvert = new System.Windows.Forms.Button();
+            this.btnGrayscale = new System.Windows.Forms.Button();
+            this.lblEffect = new System.Windows.Forms.Label();
+            this.lblOclock = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -59,9 +75,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(135, 44);
+            this.pictureBox1.Location = new System.Drawing.Point(157, 38);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(506, 305);
+            this.pictureBox1.Size = new System.Drawing.Size(494, 305);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -70,7 +86,7 @@
             // 
             // btnOpen
             // 
-            this.btnOpen.Location = new System.Drawing.Point(92, 9);
+            this.btnOpen.Location = new System.Drawing.Point(109, 9);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(75, 23);
             this.btnOpen.TabIndex = 2;
@@ -80,7 +96,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(173, 9);
+            this.btnSave.Location = new System.Drawing.Point(190, 9);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 3;
@@ -89,9 +105,9 @@
             // 
             // btnCreateNew
             // 
-            this.btnCreateNew.Location = new System.Drawing.Point(3, 9);
+            this.btnCreateNew.Location = new System.Drawing.Point(3, 12);
             this.btnCreateNew.Name = "btnCreateNew";
-            this.btnCreateNew.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateNew.Size = new System.Drawing.Size(61, 23);
             this.btnCreateNew.TabIndex = 4;
             this.btnCreateNew.Text = "New";
             this.btnCreateNew.UseVisualStyleBackColor = true;
@@ -102,7 +118,7 @@
             this.pictureBox3.BackColor = System.Drawing.Color.Black;
             this.pictureBox3.Location = new System.Drawing.Point(92, 45);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(37, 23);
+            this.pictureBox3.Size = new System.Drawing.Size(59, 37);
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
             // 
@@ -150,17 +166,143 @@
             // 
             this.btnChCol.Location = new System.Drawing.Point(3, 88);
             this.btnChCol.Name = "btnChCol";
-            this.btnChCol.Size = new System.Drawing.Size(126, 53);
+            this.btnChCol.Size = new System.Drawing.Size(148, 53);
             this.btnChCol.TabIndex = 12;
             this.btnChCol.Text = "Choose color";
             this.btnChCol.UseVisualStyleBackColor = true;
             this.btnChCol.Click += new System.EventHandler(this.btnChCol_Click);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripBtnPencil,
+            this.toolStripSeparator1,
+            this.toolStripBtnLine,
+            this.toolStripSeparator2,
+            this.toolStripBtnRectangl,
+            this.toolStripSeparator3,
+            this.toolStripBtnRound,
+            this.toolStripSeparator4,
+            this.toolStripBtnErase});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 178);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(151, 25);
+            this.toolStrip1.TabIndex = 13;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripBtnPencil
+            // 
+            this.toolStripBtnPencil.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnPencil.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnPencil.Image")));
+            this.toolStripBtnPencil.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnPencil.Name = "toolStripBtnPencil";
+            this.toolStripBtnPencil.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBtnPencil.Text = "pencil";
+            // 
+            // toolStripBtnLine
+            // 
+            this.toolStripBtnLine.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnLine.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnLine.Image")));
+            this.toolStripBtnLine.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnLine.Name = "toolStripBtnLine";
+            this.toolStripBtnLine.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBtnLine.Text = "line";
+            // 
+            // toolStripBtnRectangl
+            // 
+            this.toolStripBtnRectangl.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnRectangl.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnRectangl.Image")));
+            this.toolStripBtnRectangl.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnRectangl.Name = "toolStripBtnRectangl";
+            this.toolStripBtnRectangl.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBtnRectangl.Text = "rectangl";
+            // 
+            // toolStripBtnRound
+            // 
+            this.toolStripBtnRound.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnRound.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnRound.Image")));
+            this.toolStripBtnRound.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnRound.Name = "toolStripBtnRound";
+            this.toolStripBtnRound.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBtnRound.Text = "round";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripBtnErase
+            // 
+            this.toolStripBtnErase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnErase.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnErase.Image")));
+            this.toolStripBtnErase.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnErase.Name = "toolStripBtnErase";
+            this.toolStripBtnErase.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBtnErase.Text = "erase";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnInvert
+            // 
+            this.btnInvert.Location = new System.Drawing.Point(395, 9);
+            this.btnInvert.Name = "btnInvert";
+            this.btnInvert.Size = new System.Drawing.Size(65, 25);
+            this.btnInvert.TabIndex = 14;
+            this.btnInvert.Text = "Invert";
+            this.btnInvert.UseVisualStyleBackColor = true;
+            this.btnInvert.Click += new System.EventHandler(this.btnInvert_Click);
+            // 
+            // btnGrayscale
+            // 
+            this.btnGrayscale.Location = new System.Drawing.Point(466, 9);
+            this.btnGrayscale.Name = "btnGrayscale";
+            this.btnGrayscale.Size = new System.Drawing.Size(65, 25);
+            this.btnGrayscale.TabIndex = 15;
+            this.btnGrayscale.Text = "Grayscale";
+            this.btnGrayscale.UseVisualStyleBackColor = true;
+            // 
+            // lblEffect
+            // 
+            this.lblEffect.AutoSize = true;
+            this.lblEffect.Location = new System.Drawing.Point(354, 9);
+            this.lblEffect.Name = "lblEffect";
+            this.lblEffect.Size = new System.Drawing.Size(35, 13);
+            this.lblEffect.TabIndex = 16;
+            this.lblEffect.Text = "Effect";
+            // 
+            // lblOclock
+            // 
+            this.lblOclock.AutoSize = true;
+            this.lblOclock.Location = new System.Drawing.Point(606, 9);
+            this.lblOclock.Name = "lblOclock";
+            this.lblOclock.Size = new System.Drawing.Size(49, 13);
+            this.lblOclock.TabIndex = 17;
+            this.lblOclock.Text = "00:00:00";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 361);
+            this.Controls.Add(this.lblOclock);
+            this.Controls.Add(this.lblEffect);
+            this.Controls.Add(this.btnGrayscale);
+            this.Controls.Add(this.btnInvert);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.btnChCol);
             this.Controls.Add(this.lblY);
             this.Controls.Add(this.lblX);
@@ -177,6 +319,8 @@
             this.Text = "WinPaint";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,6 +340,20 @@
         private System.Windows.Forms.Label lblY;
         private System.Windows.Forms.Button btnChCol;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripBtnPencil;
+        private System.Windows.Forms.ToolStripButton toolStripBtnLine;
+        private System.Windows.Forms.ToolStripButton toolStripBtnRectangl;
+        private System.Windows.Forms.ToolStripButton toolStripBtnRound;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripButton toolStripBtnErase;
+        private System.Windows.Forms.Button btnInvert;
+        private System.Windows.Forms.Button btnGrayscale;
+        private System.Windows.Forms.Label lblEffect;
+        private System.Windows.Forms.Label lblOclock;
     }
 }
 
