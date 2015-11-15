@@ -13,69 +13,74 @@ namespace WinPaint.BL
     public interface IPaintManager
     {
         bool IsExist(string imagePath);
-        Image GetImage(string imagePath);
-        void SaveImage(Image img, string filename);
-        string GetCurrentPath();
+        Image GetImage(string imagePath);      
+        void SaveImage(Image img);
+        string GetCurrentPath { get; }
+        string GetImagePath { get; set; }
 
         Image GetGrayscale(int i, int j, Image image);
         Image GetInvert(int i, int j, Image image);
     }
 
-    public   class PaintManager : IPaintManager
+
+
+    public class PaintManager : IPaintManager
     {
+        public string GetCurrentPath
+        {
+            get
+            {
+                return Directory.GetCurrentDirectory();
+            }
+
+        }
+
+        public string GetImagePath { get; set; }
+
         public Image GetGrayscale(int i, int j, Image image)
         {
             Bitmap temp = (Bitmap)image;
             Bitmap bmap = (Bitmap)temp.Clone();
             Color c;
-           
-                    c = bmap.GetPixel(i, j);
-                    byte gray = (byte)(.299 * c.R + .587 * c.G + .114 * c.B);
 
-                    bmap.SetPixel(i, j, Color.FromArgb(gray, gray, gray));
-              
+            c = bmap.GetPixel(i, j);
+            byte gray = (byte)(.299 * c.R + .587 * c.G + .114 * c.B);
+
+            bmap.SetPixel(i, j, Color.FromArgb(gray, gray, gray));
+
             image = (Bitmap)bmap.Clone();
             return image;
         }
 
-        public Image GetInvert(int i, int j , Image image)
+        public Image GetInvert(int i, int j, Image image)
         {
             Bitmap temp = (Bitmap)image;
             Bitmap bmap = (Bitmap)temp.Clone();
             Color c;
-           
-                    c = bmap.GetPixel(i, j);
-                    bmap.SetPixel(i, j,Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
-              
-           image = (Bitmap)bmap.Clone();
-           return image;
-        }
 
-        public string GetCurrentPath()
-        {
-            return System.IO.Directory.GetCurrentDirectory();
+            c = bmap.GetPixel(i, j);
+            bmap.SetPixel(i, j, Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
+
+            image = (Bitmap)bmap.Clone();
+            return image;
         }
-    
+        
+
         public bool IsExist(string imagePath)
         {
-            bool flag = File.Exists(imagePath);
-            return flag;
+              return    File.Exists(imagePath);        
         }
 
-        
-        public Image GetImage( string imagePath)
-        {            
-            return Bitmap.FromFile(imagePath);
-        }   
 
-        public void SaveImage(Image img, string fileName)
+        public Image GetImage(string imagePath)
         {
-            if (File.Exists(fileName))
-            {
-                File.Delete(fileName);
-            }
+            return Bitmap.FromFile(imagePath);
+        }
 
-            img.Save(fileName, ImageFormat.Bmp);
-        }     
-    }    
+        public void SaveImage(Image img)
+        {
+            string path = GetImagePath ??  GetCurrentPath;
+            img.Save(path, ImageFormat.Bmp);           
+        }       
+    }
 }

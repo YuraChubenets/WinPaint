@@ -15,12 +15,9 @@ namespace WinPaint
 {
     public interface IWinPaint
     {
-        //path file image
-        string GetImagePath { get; }
         //content
         Bitmap Image { get; set; }
-
-        void SetImageInvert(Image image);
+        string ImagePath { get; set; }
 
         event EventHandler ImageOpenClick;
         event EventHandler ImageSaveClick;
@@ -42,15 +39,15 @@ namespace WinPaint
         bool isdraw = false;
         bool choose = false;           
         int x, y, lx, ly = 0;
-        float bw = 1.0f;
+        float lw = 1.0f;
       
         List<TwoPoint> twoPoint = new List<TwoPoint> { };
         Item currentItem;
 
+
         public MainForm()
         {
             InitializeComponent();
-
             btnOpen.Click += btnOpen_Click;
             btnSave.Click += BtnSave_Click;
             pictureBox1.Paint += PictureBox1_Paint;
@@ -60,51 +57,42 @@ namespace WinPaint
         private void MainForm_Load(object sender, EventArgs e)
         {
             Action action = () => {
-
                 while (true)
                 {
-                    Invoke((Action)(() => lblOclock.Text = DateTime.Now.ToLongTimeString()));
-                    Thread.Sleep(1000);
+                    try {
+                        Invoke((Action)(() => lblOclock.Text = DateTime.Now.ToLongTimeString()));
+                        Thread.Sleep(1000);
+                    }
+                    catch (ObjectDisposedException err)
+                    {
+                        Application.ExitThread();
+                        MessageBox.Show(err.Message);
+                    }
                 }
-
             };
-
             Task task = new Task(action);
             task.Start();
         }
 
 
+        #region IWinPaint    
 
-        #region IWinPaint  
-        public void SetImageInvert(Image image)
-        {
-            this.InvokeEx(()=> {
-                 pictureBox1.Image = image;
-            });
-           
-
-        } 
-
-        public string GetImagePath
-        {
-            get
-            {
-                return pictureBox1.ImageLocation;
-            }
-        }
+        private Bitmap _image;            
         public Bitmap Image
         {
             get
             {
-                return new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                return new Bitmap(_image);
             }
 
             set
             {
-                pictureBox1.Image = value;
+                this.InvokeEx(() => {
+                    pictureBox1.Image = value;
+                });
             }
         }
-       
+        public string ImagePath { get; set; }
 
         public event EventHandler ImageOpenClick;
         public event EventHandler ImageSaveClick;
@@ -117,13 +105,13 @@ namespace WinPaint
         private void PictureBox1_Paint(object sender, PaintEventArgs e)
         {
             if (ImageChanged != null)
-                ImageChanged(this, EventArgs.Empty);
+                ImageChanged(this, e);
+
             //-------------         
             e.Graphics.DrawLine( new Pen(currentColor), new Point(x, y), new Point(lx, ly));
-
             foreach(var p in twoPoint)
             {
-                e.Graphics.DrawLine(new Pen(p.color, bw),  p.X, p.Y);               
+                e.Graphics.DrawLine(new Pen(p.color, lw),  p.X, p.Y);               
             }
         }
 
@@ -153,10 +141,10 @@ namespace WinPaint
 
         private void btnCreateNew_Click(object sender, EventArgs e)
         {
-            pictureBox1.Paint -= PictureBox1_Paint;            
             twoPoint.Clear();
-            pictureBox1.Refresh();
-            pictureBox1.Paint += PictureBox1_Paint;
+            Graphics g = pictureBox1.CreateGraphics();
+            g.Clear(Color.White);                  
+
         }
 
         private void btnInvert_Click(object sender, EventArgs e)
@@ -181,35 +169,34 @@ namespace WinPaint
             lblY.Text = e.Y.ToString();
         }
 
-        
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = " bitmap |*.bmp";
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox1.Load(dlg.FileName); 
-                if (ImageOpenClick != null) ImageOpenClick(this, EventArgs.Empty);
+            openFileDialog1.Filter = " bitmap |*.bmp";
+            if ( openFileDialog1.ShowDialog() == DialogResult.OK)            {                         
+                ImagePath = openFileDialog1.FileName;
+                if (ImageOpenClick != null)
+                   ImageOpenClick(this, EventArgs.Empty);
+                
             }
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            Graphics g = Graphics.FromImage(bmp);
-            Rectangle rect = pictureBox1.RectangleToScreen(pictureBox1.ClientRectangle);
-            g.CopyFromScreen(rect.Location, Point.Empty, pictureBox1.Size);
-            g.Dispose();
-
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "bitmap|*.bmp";
-            if (sfd.ShowDialog() == DialogResult.OK)
+            saveFileDialog1.Filter = "bitmap|*.bmp";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                if (ImageSaveClick != null) ImageSaveClick(this, EventArgs.Empty);
-            }
-        }       
+                ImagePath = saveFileDialog1.FileName;       
+               _image = new Bitmap(pictureBox1.Width, pictureBox1.Height);//to create bmp of same size as panel
+                Rectangle rect = new Rectangle(0, 0, pictureBox1.Width, pictureBox1.Height); //to set bounds to image
+                pictureBox1.DrawToBitmap(_image, rect);  // drawing panel1 imgae into bmp of bounds of rect
+                if(pictureBox1.Image != null)
+                    pictureBox1.Image.Dispose();
 
-       
+                if (ImageSaveClick != null)
+                     ImageSaveClick(this, e);
+               // bmp.Save(ImagePath, System.Drawing.Imaging.ImageFormat.Bmp); //save location and type
+            }
+        }      
     }
 }

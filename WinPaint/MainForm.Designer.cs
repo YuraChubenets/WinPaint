@@ -43,18 +43,22 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripBtnPencil = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnLine = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnRectangl = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnRound = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripBtnLine = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripBtnErase = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnRectangl = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripBtnRound = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripBtnErase = new System.Windows.Forms.ToolStripButton();
             this.btnInvert = new System.Windows.Forms.Button();
             this.btnGrayscale = new System.Windows.Forms.Button();
             this.lblEffect = new System.Windows.Forms.Label();
             this.lblOclock = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -92,11 +96,10 @@
             this.btnOpen.TabIndex = 2;
             this.btnOpen.Text = "Open";
             this.btnOpen.UseVisualStyleBackColor = true;
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(190, 9);
+            this.btnSave.Location = new System.Drawing.Point(200, 9);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 3;
@@ -200,6 +203,11 @@
             this.toolStripBtnPencil.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnPencil.Text = "pencil";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // toolStripBtnLine
             // 
             this.toolStripBtnLine.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -208,6 +216,11 @@
             this.toolStripBtnLine.Name = "toolStripBtnLine";
             this.toolStripBtnLine.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnLine.Text = "line";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripBtnRectangl
             // 
@@ -218,6 +231,11 @@
             this.toolStripBtnRectangl.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnRectangl.Text = "rectangl";
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
             // toolStripBtnRound
             // 
             this.toolStripBtnRound.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -227,15 +245,10 @@
             this.toolStripBtnRound.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnRound.Text = "round";
             // 
-            // toolStripSeparator1
+            // toolStripSeparator4
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripBtnErase
             // 
@@ -245,16 +258,6 @@
             this.toolStripBtnErase.Name = "toolStripBtnErase";
             this.toolStripBtnErase.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnErase.Text = "erase";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
             // btnInvert
             // 
@@ -293,11 +296,24 @@
             this.lblOclock.TabIndex = 17;
             this.lblOclock.Text = "00:00:00";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(270, 160);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(261, 23);
+            this.progressBar1.TabIndex = 18;
+            this.progressBar1.Visible = false;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 361);
+            this.ClientSize = new System.Drawing.Size(653, 362);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lblOclock);
             this.Controls.Add(this.lblEffect);
             this.Controls.Add(this.btnGrayscale);
@@ -354,6 +370,10 @@
         private System.Windows.Forms.Button btnGrayscale;
         private System.Windows.Forms.Label lblEffect;
         private System.Windows.Forms.Label lblOclock;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }
 
