@@ -13,11 +13,20 @@ using WinPaint.BL;
 
 namespace WinPaint
 {
+    public enum Item
+    {
+        Rectangle,
+        Line,
+        Brush,
+        Pencil
+    }
+
     public interface IWinPaint
     {
         //content
-        Bitmap Image { get; set; }
+        Bitmap CurrentImage { get; set; }
         string ImagePath { get; set; }
+        Item CurrentItemTools { get; set; }
 
         event EventHandler ImageOpenClick;
         event EventHandler ImageSaveClick;
@@ -27,24 +36,14 @@ namespace WinPaint
 
     public partial class MainForm : Form, IWinPaint
     {
-        public enum Item
-        {
-            Rectangle,
-            Line,
-            Brush,
-            Pencil
-        }
 
         Color currentColor = Color.Black;
         bool isdraw = false;
-        bool choose = false;           
+        bool choose = false;
         int x, y, lx, ly = 0;
         float lw = 1.0f;
-      
+
         List<TwoPoint> twoPoint = new List<TwoPoint> { };
-        Item currentItem;
-
-
         public MainForm()
         {
             InitializeComponent();
@@ -54,7 +53,7 @@ namespace WinPaint
             this.Load += MainForm_Load;
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private async void  MainForm_Load(object sender, EventArgs e)
         {
             Action action = () => {
                 while (true)
@@ -70,15 +69,14 @@ namespace WinPaint
                     }
                 }
             };
-            Task task = new Task(action);
-            task.Start();
+          await  Task.Factory.StartNew(action);
         }
 
 
         #region IWinPaint    
 
-        private Bitmap _image;            
-        public Bitmap Image
+        private Bitmap _image;
+        public Bitmap CurrentImage
         {
             get
             {
@@ -94,6 +92,8 @@ namespace WinPaint
         }
         public string ImagePath { get; set; }
 
+        public Item CurrentItemTools { get; set; }
+
         public event EventHandler ImageOpenClick;
         public event EventHandler ImageSaveClick;
         public event EventHandler ImageChanged;
@@ -108,10 +108,10 @@ namespace WinPaint
                 ImageChanged(this, e);
 
             //-------------         
-            e.Graphics.DrawLine( new Pen(currentColor), new Point(x, y), new Point(lx, ly));
-            foreach(var p in twoPoint)
+            e.Graphics.DrawLine(new Pen(currentColor), new Point(x, y), new Point(lx, ly));
+            foreach (var p in twoPoint)
             {
-                e.Graphics.DrawLine(new Pen(p.color, lw),  p.X, p.Y);               
+                e.Graphics.DrawLine(new Pen(p.color, lw), p.X, p.Y);
             }
         }
 
@@ -126,13 +126,13 @@ namespace WinPaint
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             isdraw = false;
-            twoPoint.Add(new TwoPoint( new Point(x, y), new Point(lx, ly), currentColor));
+            twoPoint.Add(new TwoPoint(new Point(x, y), new Point(lx, ly), currentColor));
         }
 
         private void btnChCol_Click(object sender, EventArgs e)
         {
             DialogResult d = colorDialog1.ShowDialog();
-            if( d == DialogResult.OK)
+            if (d == DialogResult.OK)
             {
                 currentColor = colorDialog1.Color;
                 pictureBox3.BackColor = currentColor;
@@ -143,18 +143,41 @@ namespace WinPaint
         {
             twoPoint.Clear();
             Graphics g = pictureBox1.CreateGraphics();
-            g.Clear(Color.White);                  
+            g.Clear(Color.White);
 
         }
 
-        private void btnInvert_Click(object sender, EventArgs e)
+        private async void btnInvert_Click(object sender, EventArgs e)
         {
             btnInvert.Enabled = false;
 
-            if (ImageProcessInvert != null)
-                ImageProcessInvert(this, EventArgs.Empty);
+            //if (ImageProcessInvert != null)
+            //    ImageProcessInvert(this, EventArgs.Empty);
+            
 
-            btnInvert.Enabled = true;
+           Func<Image> func = (() =>
+            {
+                Bitmap bmap = (Bitmap)pictureBox1.Image.Clone();
+                Color c;
+                for (int i = 0; i < bmap.Width; i++)
+                {
+                    for (int j = 0; j < bmap.Height; j++)
+                    {
+                        c = bmap.GetPixel(i, j);
+                        bmap.SetPixel(i, j,
+                          Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
+                    }
+
+                    Thread.Sleep(1);
+                    pictureBox1.Image = (Bitmap)bmap.Clone();
+                }
+               // pictureBox1.Image = (Bitmap)bmap.Clone();
+                return (Bitmap)bmap.Clone();
+            });
+
+         Image img = await Task<Image>.Factory.StartNew(func);
+          //   pictureBox1.Image = img;
+          btnInvert.Enabled = true;
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
