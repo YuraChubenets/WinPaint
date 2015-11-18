@@ -59,6 +59,7 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.btnFill = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -202,6 +203,7 @@
             this.toolStripBtnPencil.Name = "toolStripBtnPencil";
             this.toolStripBtnPencil.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnPencil.Text = "pencil";
+            this.toolStripBtnPencil.Click += new System.EventHandler(this.toolStripBtnPencil_Click);
             // 
             // toolStripSeparator1
             // 
@@ -216,6 +218,7 @@
             this.toolStripBtnLine.Name = "toolStripBtnLine";
             this.toolStripBtnLine.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnLine.Text = "line";
+            this.toolStripBtnLine.Click += new System.EventHandler(this.toolStripBtnLine_Click);
             // 
             // toolStripSeparator2
             // 
@@ -230,6 +233,7 @@
             this.toolStripBtnRectangl.Name = "toolStripBtnRectangl";
             this.toolStripBtnRectangl.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnRectangl.Text = "rectangl";
+            this.toolStripBtnRectangl.Click += new System.EventHandler(this.toolStripBtnRectangl_Click);
             // 
             // toolStripSeparator3
             // 
@@ -244,6 +248,7 @@
             this.toolStripBtnRound.Name = "toolStripBtnRound";
             this.toolStripBtnRound.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnRound.Text = "round";
+            this.toolStripBtnRound.Click += new System.EventHandler(this.toolStripBtnRound_Click);
             // 
             // toolStripSeparator4
             // 
@@ -258,6 +263,7 @@
             this.toolStripBtnErase.Name = "toolStripBtnErase";
             this.toolStripBtnErase.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnErase.Text = "erase";
+            this.toolStripBtnErase.Click += new System.EventHandler(this.toolStripBtnErase_Click);
             // 
             // btnInvert
             // 
@@ -308,11 +314,22 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // btnFill
+            // 
+            this.btnFill.Location = new System.Drawing.Point(3, 221);
+            this.btnFill.Name = "btnFill";
+            this.btnFill.Size = new System.Drawing.Size(148, 23);
+            this.btnFill.TabIndex = 19;
+            this.btnFill.Text = "Fill";
+            this.btnFill.UseVisualStyleBackColor = true;
+            this.btnFill.Click += new System.EventHandler(this.btnFill_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 362);
+            this.Controls.Add(this.btnFill);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lblOclock);
             this.Controls.Add(this.lblEffect);
@@ -330,6 +347,7 @@
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
             this.MinimumSize = new System.Drawing.Size(500, 400);
             this.Name = "MainForm";
             this.Text = "WinPaint";
@@ -374,6 +392,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.Button btnFill;
     }
 }
 

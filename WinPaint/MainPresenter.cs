@@ -22,6 +22,8 @@ namespace WinPaint
             _manager = manager;
             _messageService = messageService;
 
+            _view.CurrentItem = Item.Pencil;
+
             _view.ImageOpenClick += _view_ImageOpenClick;
             _view.ImageSaveClick += _view_ImageSaveClick;
            
@@ -46,7 +48,7 @@ namespace WinPaint
                     return;
                 }
                 _currentFilePath = filePath;
-                _view.CurrentImage = (Bitmap)_manager.GetImage(filePath);
+                _view.Image = (Bitmap)_manager.GetImage(filePath);
             }
             catch (Exception ex)
             {
@@ -58,7 +60,7 @@ namespace WinPaint
         {
             try
             {
-                var content = _view.CurrentImage;
+                var content = _view.Image;
                 _manager.GetImagePath = _view.ImagePath;
                 _manager.SaveImage(content);
                 _messageService.ShowMessage("Файл успешно сохранён");

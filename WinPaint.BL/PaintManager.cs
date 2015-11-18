@@ -26,6 +26,7 @@ namespace WinPaint.BL
 
     public class PaintManager : IPaintManager
     {
+       
         public string GetCurrentPath
         {
             get
@@ -81,6 +82,21 @@ namespace WinPaint.BL
         {
             string path = GetImagePath ??  GetCurrentPath;
             img.Save(path, ImageFormat.Bmp);           
-        }       
+        }
+
+
+        //void floodFill4(int x, int y, int newColor, int oldColor)
+        //{
+        //    if (x >= 0 && x < w && y >= 0 && y < h && screenBuffer[x][y] == oldColor && screenBuffer[x][y] != newColor)
+        //    {
+        //        screenBuffer[x][y] = newColor; //set color before starting recursion
+
+        //        floodFill4(x + 1, y, newColor, oldColor);
+        //        floodFill4(x - 1, y, newColor, oldColor);
+        //        floodFill4(x, y + 1, newColor, oldColor);
+        //        floodFill4(x, y - 1, newColor, oldColor);
+        //    }
+        //}
+
     }
 }
