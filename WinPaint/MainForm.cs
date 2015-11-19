@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -27,11 +28,10 @@ namespace WinPaint
     public interface IWinPaint
     {
         //content
-        Bitmap Image { get; set; }
+        Image SetImage(Image img);
         string ImagePath { get; set; }
         Item CurrentItem { get; set; }
-
-       
+        Image ContentImage { get; set;}
 
         event EventHandler ImageOpenClick;
         event EventHandler ImageSaveClick;
@@ -41,19 +41,17 @@ namespace WinPaint
 
     public partial class MainForm : Form, IWinPaint
     {
-        
-
         Color currentColor = Color.Black;
-        bool isdraw = false;
-        bool choose = false;           
+        bool isdraw = false;  
         int x, y, lx, ly = 0;
-        float lw = 1.0f;
+        float lw = 4.0f;
 
         List<BmpMatrixPoint> massPoints = new List<BmpMatrixPoint> { };
        
 
         GraphicsPath path = new GraphicsPath();
         Region region;
+        Inverter _invert;
 
         public MainForm()
         {
@@ -62,9 +60,8 @@ namespace WinPaint
             btnSave.Click += BtnSave_Click;
             pictureBox1.Paint += PictureBox1_Paint;
             this.Load += MainForm_Load;
-          
+            _contentImage = new Bitmap(pictureBox1.Width, pictureBox1.Height);          
         }
-
        
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -73,7 +70,7 @@ namespace WinPaint
                 {
                     try {
                         Invoke((Action)(() => lblOclock.Text = DateTime.Now.ToLongTimeString()));
-                        Thread.Sleep(1000);
+                        Task.Delay(1000);
                     }
                     catch (ObjectDisposedException err)
                     {
@@ -86,27 +83,34 @@ namespace WinPaint
             task.Start();
         }
 
-
         #region IWinPaint    
-        private Bitmap _image;            
-        public Bitmap Image
+        //private Bitmap _image;            
+        public Image SetImage(Image img)
+        {
+              this.InvokeEx(() =>
+                 {
+                     pictureBox1.Image = img;
+                 });
+            return img;
+        }
+        
+
+        public string ImagePath { get; set; }
+        public Item CurrentItem { get; set; }
+
+        private Image _contentImage;
+        public Image ContentImage
         {
             get
             {
-                return new Bitmap(_image);
+                return _contentImage;
             }
 
             set
             {
-                this.InvokeEx(() => {
-                    pictureBox1.Image = value;
-                });
+                _contentImage = value;
             }
         }
-
-        public string ImagePath { get; set; }
-        public Item CurrentItem { get; set; }
-      
 
         public event EventHandler ImageOpenClick;
         public event EventHandler ImageSaveClick;
@@ -114,8 +118,23 @@ namespace WinPaint
         public event EventHandler ImageProcessInvert;
         #endregion
 
+        private async void btnInvert_Click(object sender, EventArgs e)
+        {
+
+            this.Enable(false);
+            this.Enabled = true;
+            
+            _invert = new Inverter(ContentImage);
+            _invert.ProcessChanged += SetImage;
 
 
+            bool cancelled = await Task<bool>.Factory.StartNew(_invert.Work);
+
+            string message = cancelled ? "Процесс отменен" : "Процесс завершен!";
+            MessageBox.Show(message);
+            this.Enable(true);
+        }
+        
 
         private void btnChCol_Click(object sender, EventArgs e)
         {
@@ -147,6 +166,7 @@ namespace WinPaint
         {
             CurrentItem = Item.Erase;
         }
+
         private void btnFill_Click(object sender, EventArgs e)
         {
             CurrentItem = Item.Fill;
@@ -164,41 +184,46 @@ namespace WinPaint
             {
                 case Item.Pencil:
                     {
-                     
+                        //SolidBrush sb = new SolidBrush(currentColor);
+                        //e.Graphics.FillEllipse(sb, lx, ly, lw, lw);
+                        foreach (var p in massPoints)
+                        {
+                            e.Graphics.DrawLines(new Pen(p.color, lw), p.p1);
+                        }
 
-                    } break;
+                    }
+                    break;
                 case Item.Line:
                     {
-                        e.Graphics.DrawLine(new Pen(currentColor), new Point(x, y), new Point(lx, ly));
-                        foreach (var p in massPoints)
-                        {              
-                            e.Graphics.DrawLine(new Pen(p.color, lw), new Point(p.p1.X, p.p1.Y), new Point(p.p2.X , p.p2.Y));
-                        }
+                        //e.Graphics.FillRectangle(new Pen(currentColor), new Point(x, y), new Point(lx, ly));
+                        //foreach (var p in massPoints)
+                        //{              
+                        //    e.Graphics.DrawLine(new Pen(p.color, lw), new Point(p.p1.X, p.p1.Y), new Point(p.p2.X , p.p2.Y));
+                        //}
                     }
                     break;
                 case Item.Rectangle:
                     {
-                        var rect = GetRectangleFromPoints(new Point(x, y), new Point(lx, ly));                        
-                        e.Graphics.DrawRectangle(new Pen(currentColor),rect);
+                        //var rect = GetRectangleFromPoints(new Point(x, y), new Point(lx, ly));                        
+                        //e.Graphics.DrawRectangle(new Pen(currentColor),rect);
                        
-                        foreach (var p in massPoints)
-                        {
-                            e.Graphics.DrawLine(new Pen(p.color, lw), new Point(p.p1.X, p.p1.Y), new Point(p.p2.X, p.p2.Y));
-                        }
+                        //foreach (var p in massPoints)
+                        //{
+                        //    e.Graphics.DrawLine(new Pen(p.color, lw), new Point(p.p1.X, p.p1.Y), new Point(p.p2.X, p.p2.Y));
+                        //}
 
                     }
                     break;
                 case Item.Round:
                     {
-                        var rect = GetRectangleFromPoints(new Point(x, y), new Point(lx, ly));
-                        e.Graphics.DrawEllipse(new Pen(currentColor), rect);
-                        e.Graphics.FillEllipse(new SolidBrush(Color.Red), rect);
+                       // var rect = GetRectangleFromPoints(new Point(x, y), new Point(lx, ly));
+                       // e.Graphics.DrawEllipse(new Pen(currentColor), rect);
+                       //// e.Graphics.FillEllipse(new SolidBrush(Color.Red), rect);
 
-                        foreach (var p in massPoints)
-                        {
-                            e.Graphics.DrawLine(new Pen(p.color, lw), new Point(p.p1.X, p.p1.Y), new Point(p.p2.X, p.p2.Y));
-                        }
-
+                       // foreach (var p in massPoints)
+                       // {
+                       //     e.Graphics.DrawLine(new Pen(p.color, lw), new Point(p.p1.X, p.p1.Y), new Point(p.p2.X, p.p2.Y));
+                       // }
 
                     }
                     break;
@@ -221,6 +246,39 @@ namespace WinPaint
             //current coord
             x = e.X;
             y = e.Y;
+             Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
+            switch (CurrentItem)
+            {
+                
+                case (Item.Pencil):
+                    {
+
+                        SolidBrush sb = new SolidBrush(currentColor);
+                     //   g.FillEllipse(sb, e.X, e.Y, lw, lw);
+                        massPoints.Add(new BmpMatrixPoint(new Point[] { new Point(x, y) }, lw, currentColor));
+                        //-------------
+
+
+                    }
+                    break;
+
+                case (Item.Line):
+                    {
+                        // massPoints.Add(new BmpMatrixPoint(new Point(x, y), new Point(lx, ly), lw, currentColor));
+                    }
+                    break;
+                case (Item.Rectangle):
+                    {
+                        
+                    }
+                    break;
+                case (Item.Round):
+                    {
+                        
+                    }
+                    break;
+            }
+            g.Dispose();
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -230,27 +288,35 @@ namespace WinPaint
             {
                 case(Item.Pencil):
                     {
+
                      //-------------
+
                     } break;
 
                 case (Item.Line):
                     {
-                        massPoints.Add(new BmpMatrixPoint(new Point(x, y), new Point(lx, ly), lw, currentColor));
+                       // massPoints.Add(new BmpMatrixPoint(new Point(x, y), new Point(lx, ly), lw, currentColor));
                     }
                     break;
                 case (Item.Rectangle):
                     {
-                        massPoints.Add(new BmpMatrixPoint(new Point(x, y), new Point(x, ly), lw, currentColor));
-                        massPoints.Add(new BmpMatrixPoint(new Point(lx, y), new Point(lx, ly), lw, currentColor));
-                        massPoints.Add(new BmpMatrixPoint(new Point(x, y), new Point(lx, y), lw, currentColor));
-                        massPoints.Add(new BmpMatrixPoint(new Point(lx, ly), new Point(x, ly), lw, currentColor));
-
+                        //massPoints.Add(new BmpMatrixPoint(new Point(x, y), new Point(x, ly), lw, currentColor));
+                        //massPoints.Add(new BmpMatrixPoint(new Point(lx, y), new Point(lx, ly), lw, currentColor));
+                        //massPoints.Add(new BmpMatrixPoint(new Point(x, y), new Point(lx, y), lw, currentColor));
+                        //massPoints.Add(new BmpMatrixPoint(new Point(lx, ly), new Point(x, ly), lw, currentColor));
                     }
                     break;
                 case (Item.Round):
                     {
+                      //var rect = GetRectangleFromPoints(new Point(x, y), new Point(lx, ly));
+                      //pictureBox1.CreateGraphics().DrawEllipse(new Pen(currentColor), rect);
+
+                      //  GraphicsPath gp = new GraphicsPath();
+                      //  Region region = new Region(rect);
+                      // region.
+
                         //massPoints.Add(new BmpMatrixPoint()) maybe
-                     //   massPoints.Add(new BmpMatrixPoint(new Point(x, y), new Point(lx, ly), lw, currentColor));
+                        //massPoints.Add(new BmpMatrixPoint(new Point(x, y), new Point(lx, ly), lw, currentColor));
                     }
                     break;
             }
@@ -261,6 +327,7 @@ namespace WinPaint
         {
             if (isdraw)
             {
+                Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
                 switch (CurrentItem)
                 {
 
@@ -268,12 +335,15 @@ namespace WinPaint
                         {
                             lx = e.X;
                             ly = e.Y;
-                            Graphics g = pictureBox1.CreateGraphics();
-                            g.DrawLine(new Pen(currentColor), new Point(x, y), new Point(lx, ly));                           
-                            massPoints.Add(new BmpMatrixPoint(new Point (x, y), new Point(lx, ly), lw, currentColor));
-
+                            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                            SolidBrush sb = new SolidBrush(currentColor);
+                             g.FillEllipse(sb, e.X, e.Y, lw, lw);
+                            // g.DrawLine(new Pen(currentColor,lw), new Point(x, y), new Point(lx, ly));                           
+                            massPoints.Add(new BmpMatrixPoint(new Point[] { new Point(x, y) }, lw, currentColor));
+                            massPoints.Add(new BmpMatrixPoint(new Point[] { new Point(lx, ly) }, lw, currentColor));
                             x = e.X;
                             y = e.Y;
+                            
 
                         }break;
 
@@ -305,11 +375,11 @@ namespace WinPaint
                         {
                             lx = e.X;
                             ly = e.Y;
-                            Graphics g = pictureBox1.CreateGraphics();
+                           
                             var tempColor = currentColor;
                             currentColor = Color.White;
                             g.DrawLine(new Pen(currentColor), new Point(x, y), new Point(lx, ly));
-                            massPoints.Add(new BmpMatrixPoint(new Point(x, y), new Point(lx, ly),lw, currentColor));
+                            massPoints.Add(new BmpMatrixPoint(new Point[] { new Point(x, y) }, lw, currentColor));                        
                             x = e.X;
                             y = e.Y;
                             currentColor = tempColor;
@@ -322,7 +392,9 @@ namespace WinPaint
 
                         }break;
                 }
+                g.Dispose();
             }
+            
             lblX.Text = e.X.ToString();
             lblY.Text = e.Y.ToString();
         }
@@ -368,40 +440,7 @@ namespace WinPaint
         }
         //-----------------------
 
-        private async void btnInvert_Click(object sender, EventArgs e)
-        {
-            this.Enable(false);
-
-            //if (ImageProcessInvert != null)
-            //    ImageProcessInvert(this, EventArgs.Empty);
-
-
-            Func<Image> func = (() =>
-            {
-                Bitmap bmap = (Bitmap)pictureBox1.Image.Clone();
-                Color c;
-                for (int i = 0; i < bmap.Width; i++)
-                {
-                    for (int j = 0; j < bmap.Height; j++)
-                    {
-                        c = bmap.GetPixel(i, j);
-                        bmap.SetPixel(i, j,
-                          Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
-                    }
-
-                    Thread.Sleep(1);
-                    pictureBox1.Image = (Bitmap)bmap.Clone();
-                }
-                // pictureBox1.Image = (Bitmap)bmap.Clone();
-                return (Bitmap)bmap.Clone();
-            });
-
-            Image img = await Task<Image>.Factory.StartNew(func);
-
-            this.Enable(true);
-        }
-
-
+         
 
         private void btnCreateNew_Click(object sender, EventArgs e)
         {
@@ -427,16 +466,20 @@ namespace WinPaint
             saveFileDialog1.Filter = "bitmap|*.bmp";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                ImagePath = saveFileDialog1.FileName;       
-               _image = new Bitmap(pictureBox1.Width, pictureBox1.Height);//to create bmp of same size as panel
-                Rectangle rect = new Rectangle(0, 0, pictureBox1.Width, pictureBox1.Height); //to set bounds to image
-                pictureBox1.DrawToBitmap(_image, rect);  // drawing pictureBox1 imgae into bmp of bounds of rect
+                ImagePath = saveFileDialog1.FileName;
+              
+                using (var bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height))
+                {
+                   
+                    FileStream fstream = new FileStream(saveFileDialog1.FileName, FileMode.Create);
 
-                if (pictureBox1.Image != null)
-                    pictureBox1.Image.Dispose();
-
-                if (ImageSaveClick != null)
-                     ImageSaveClick(this, e);              
+                    bitmap.Save(fstream ,  ImageFormat.Bmp);
+                    fstream.Close();
+                   
+                }
+  
+                //if (ImageSaveClick != null)
+                //     ImageSaveClick(this, e);              
             }
         }      
     }

@@ -8,13 +8,12 @@ namespace WinPaint
 {
   public   class MainPresenter
     {
-        private Inverter _inverter;
 
         private readonly IWinPaint _view;
         private readonly IPaintManager _manager;
         private readonly IMessageService _messageService;
 
-        private string _currentFilePath;
+        private Image _currentImage;   
 
         public MainPresenter(IWinPaint view, IPaintManager manager, IMessageService messageService)
         {
@@ -27,12 +26,14 @@ namespace WinPaint
             _view.ImageOpenClick += _view_ImageOpenClick;
             _view.ImageSaveClick += _view_ImageSaveClick;
            
+           
                 
         }
 
         private void _view_ImageChanged(object sender, System.EventArgs e)
         {
             //throw new System.NotImplementedException();
+           
         }
 
        
@@ -47,8 +48,8 @@ namespace WinPaint
                     _messageService.ShowExclamation("Выбранный файл не существует");
                     return;
                 }
-                _currentFilePath = filePath;
-                _view.Image = (Bitmap)_manager.GetImage(filePath);
+                _currentImage = _manager.GetImage(filePath);
+                _view.SetImage((Bitmap)_currentImage);
             }
             catch (Exception ex)
             {
@@ -60,9 +61,9 @@ namespace WinPaint
         {
             try
             {
-                var content = _view.Image;
-                _manager.GetImagePath = _view.ImagePath;
-                _manager.SaveImage(content);
+                var stringPath = _view.ImagePath;
+                _manager.GetImagePath = _view.ImagePath;                                              
+                _manager.SaveImage(_view.ContentImage);
                 _messageService.ShowMessage("Файл успешно сохранён");
             }
             catch (Exception ex)

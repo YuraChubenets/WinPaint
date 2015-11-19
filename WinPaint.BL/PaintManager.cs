@@ -13,11 +13,10 @@ namespace WinPaint.BL
     public interface IPaintManager
     {
         bool IsExist(string imagePath);
-        Image GetImage(string imagePath);      
+        Image GetImage(string imagePath);
         void SaveImage(Image img);
         string GetCurrentPath { get; }
         string GetImagePath { get; set; }
-
         Image GetGrayscale(int i, int j, Image image);
         Image GetInvert(int i, int j, Image image);
     }
@@ -35,9 +34,7 @@ namespace WinPaint.BL
             }
 
         }
-
         public string GetImagePath { get; set; }
-
         public Image GetGrayscale(int i, int j, Image image)
         {
             Bitmap temp = (Bitmap)image;
@@ -53,15 +50,18 @@ namespace WinPaint.BL
             return image;
         }
 
+        public Image GetImage(string imagePath)
+        {
+            return (Image)Image.FromFile(imagePath).Clone();
+        }
+
         public Image GetInvert(int i, int j, Image image)
         {
             Bitmap temp = (Bitmap)image;
             Bitmap bmap = (Bitmap)temp.Clone();
             Color c;
-
             c = bmap.GetPixel(i, j);
             bmap.SetPixel(i, j, Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
-
             image = (Bitmap)bmap.Clone();
             return image;
         }
@@ -69,14 +69,8 @@ namespace WinPaint.BL
 
         public bool IsExist(string imagePath)
         {
-              return    File.Exists(imagePath);        
-        }
-
-
-        public Image GetImage(string imagePath)
-        {
-            return Bitmap.FromFile(imagePath);
-        }
+              return  File.Exists(imagePath);        
+        }       
 
         public void SaveImage(Image img)
         {

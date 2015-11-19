@@ -12,32 +12,50 @@ namespace WinPaint.BL
     {
 
         private bool _cancell = false;
+        private Image _image;
         public void Cancel()
         {
             _cancell = true;
         }
 
-        public bool Work(Image image)
+        public Inverter(Image image)
         {
-            for (int i = 0; i < image.Width; i++)
+            _image = image;
+        }
+
+        public bool Work()
+        {
+            Bitmap bmap = (Bitmap)_image.Clone();
+            Color c;
+            for (int i = 0; i < bmap.Width; i++)
             {
-                for (int j = 0; j < image.Height; j++)
+                for (int j = 0; j < bmap.Height; j++)
                 {
                     if (_cancell)
-                        break;
-                    Thread.Sleep(100);
-                    OnProgressChanged(i, j, image);
-                }
+                        break;                   
+                        try
+                        {
+                            c = bmap.GetPixel(i, j);
+                            bmap.SetPixel(i, j, Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
+                            Task.Delay(50);
+                        }
+                        catch(Exception ex)
+                        {
+                            string.Format(ex.Message);
+                        }
+                }                   
+               _image = (Bitmap)bmap.Clone();  
+                OnProgressChanged(_image);                
             }
-            return _cancell;
+          bmap.Dispose();      
+          return _cancell;
         }
 
-        public void OnProgressChanged(int i, int j, Image image)
+        public void OnProgressChanged( Image image)
         {
             if (ProcessChanged != null)
-                ProcessChanged(i, j, image);
+                ProcessChanged(image);
         }
-
-        public event Action<int, int, Image> ProcessChanged;
+        public event Func<Image,Image> ProcessChanged;
     }
 }

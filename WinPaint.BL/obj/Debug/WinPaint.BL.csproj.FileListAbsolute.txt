@@ -28,3 +28,8 @@ C:\Users\chubenets\Desktop\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.dll
 C:\Users\chubenets\Desktop\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
 C:\Users\chubenets\Desktop\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.dll
 C:\Users\chubenets\Desktop\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.pdb
+C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint.BL\bin\Debug\WinPaint.BL.dll
+C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
+C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.csprojResolveAssemblyReference.cache
+C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.dll
+C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.pdb
