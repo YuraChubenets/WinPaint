@@ -82,7 +82,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Location = new System.Drawing.Point(157, 38);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(494, 305);
+            this.pictureBox1.Size = new System.Drawing.Size(519, 304);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -130,7 +130,7 @@
             // 
             this.lblCoorX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCoorX.AutoSize = true;
-            this.lblCoorX.Location = new System.Drawing.Point(3, 310);
+            this.lblCoorX.Location = new System.Drawing.Point(3, 309);
             this.lblCoorX.Name = "lblCoorX";
             this.lblCoorX.Size = new System.Drawing.Size(73, 13);
             this.lblCoorX.TabIndex = 8;
@@ -140,7 +140,7 @@
             // 
             this.lblCoorY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCoorY.AutoSize = true;
-            this.lblCoorY.Location = new System.Drawing.Point(3, 336);
+            this.lblCoorY.Location = new System.Drawing.Point(3, 335);
             this.lblCoorY.Name = "lblCoorY";
             this.lblCoorY.Size = new System.Drawing.Size(73, 13);
             this.lblCoorY.TabIndex = 9;
@@ -150,7 +150,7 @@
             // 
             this.lblX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblX.AutoSize = true;
-            this.lblX.Location = new System.Drawing.Point(82, 310);
+            this.lblX.Location = new System.Drawing.Point(82, 309);
             this.lblX.Name = "lblX";
             this.lblX.Size = new System.Drawing.Size(13, 13);
             this.lblX.TabIndex = 10;
@@ -160,7 +160,7 @@
             // 
             this.lblY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblY.AutoSize = true;
-            this.lblY.Location = new System.Drawing.Point(82, 336);
+            this.lblY.Location = new System.Drawing.Point(82, 335);
             this.lblY.Name = "lblY";
             this.lblY.Size = new System.Drawing.Size(13, 13);
             this.lblY.TabIndex = 11;
@@ -267,6 +267,7 @@
             // 
             // btnInvert
             // 
+            this.btnInvert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnInvert.Location = new System.Drawing.Point(395, 9);
             this.btnInvert.Name = "btnInvert";
             this.btnInvert.Size = new System.Drawing.Size(65, 25);
@@ -277,6 +278,7 @@
             // 
             // btnGrayscale
             // 
+            this.btnGrayscale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGrayscale.Location = new System.Drawing.Point(466, 9);
             this.btnGrayscale.Name = "btnGrayscale";
             this.btnGrayscale.Size = new System.Drawing.Size(65, 25);
@@ -286,19 +288,23 @@
             // 
             // lblEffect
             // 
+            this.lblEffect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEffect.AutoSize = true;
-            this.lblEffect.Location = new System.Drawing.Point(354, 9);
+            this.lblEffect.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblEffect.Location = new System.Drawing.Point(333, 10);
             this.lblEffect.Name = "lblEffect";
-            this.lblEffect.Size = new System.Drawing.Size(35, 13);
+            this.lblEffect.Size = new System.Drawing.Size(56, 24);
             this.lblEffect.TabIndex = 16;
             this.lblEffect.Text = "Effect";
             // 
             // lblOclock
             // 
+            this.lblOclock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblOclock.AutoSize = true;
-            this.lblOclock.Location = new System.Drawing.Point(606, 9);
+            this.lblOclock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblOclock.Location = new System.Drawing.Point(588, 16);
             this.lblOclock.Name = "lblOclock";
-            this.lblOclock.Size = new System.Drawing.Size(49, 13);
+            this.lblOclock.Size = new System.Drawing.Size(56, 16);
             this.lblOclock.TabIndex = 17;
             this.lblOclock.Text = "00:00:00";
             // 
@@ -328,7 +334,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 362);
+            this.ClientSize = new System.Drawing.Size(678, 361);
             this.Controls.Add(this.btnFill);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lblOclock);

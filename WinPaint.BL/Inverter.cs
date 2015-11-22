@@ -37,7 +37,7 @@ namespace WinPaint.BL
                         {
                             c = bmap.GetPixel(i, j);
                             bmap.SetPixel(i, j, Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
-                            Task.Delay(50);
+                            Task.Delay(10);
                         }
                         catch(Exception ex)
                         {

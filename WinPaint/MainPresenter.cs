@@ -13,7 +13,8 @@ namespace WinPaint
         private readonly IPaintManager _manager;
         private readonly IMessageService _messageService;
 
-        private Image _currentImage;   
+        private Image _currentImage;
+        Inverter _invert;
 
         public MainPresenter(IWinPaint view, IPaintManager manager, IMessageService messageService)
         {
@@ -25,15 +26,20 @@ namespace WinPaint
 
             _view.ImageOpenClick += _view_ImageOpenClick;
             _view.ImageSaveClick += _view_ImageSaveClick;
-           
-           
-                
+            _view.ImageChanged += _view_ImageChanged;
         }
 
-        private void _view_ImageChanged(object sender, System.EventArgs e)
+        private async  void _view_ImageChanged(object sender, EventArgs e)
         {
-            //throw new System.NotImplementedException();
-           
+            _currentImage = _view.ContentImage;
+            _invert = new Inverter(_currentImage);
+
+            _invert.ProcessChanged += _view.SetImage;
+
+            bool cancelled =  await Task<bool>.Factory.StartNew(_invert.Work);
+
+            string message = cancelled ? "Процесс отменен" : "Процесс завершен!";
+            _messageService.ShowMessage(message);
         }
 
        
@@ -61,7 +67,6 @@ namespace WinPaint
         {
             try
             {
-                var stringPath = _view.ImagePath;
                 _manager.GetImagePath = _view.ImagePath;                                              
                 _manager.SaveImage(_view.ContentImage);
                 _messageService.ShowMessage("Файл успешно сохранён");

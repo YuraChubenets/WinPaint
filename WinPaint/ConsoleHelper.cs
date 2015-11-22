@@ -7,18 +7,10 @@ namespace WinPaint.BL
     {
         public static void InvokeEx(this Control control, Action action)
         {
-            try
-            {
-                if (control.InvokeRequired)
-                    control.Invoke(action);
-                else
-                    action();
-            }
-            catch (ObjectDisposedException err)
-            {
-                Application.ExitThread();
-                MessageBox.Show(err.Message);
-            }
+                    if (control.InvokeRequired)
+                        control.Invoke(action);
+                    else
+                        action();
 
         }
 

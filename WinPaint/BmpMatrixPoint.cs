@@ -9,12 +9,12 @@ namespace WinPaint
 {
   public   class BmpMatrixPoint
     {
-        public Point[] p1;
+        public PointF[] p1;
     
         public Color color;
         public float lw;
 
-        public BmpMatrixPoint(Point[] p1,  float lw,  Color color)
+        public BmpMatrixPoint(PointF[] p1,  float lw,  Color color)
         {
             this.p1 = p1;
             //
