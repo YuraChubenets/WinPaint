@@ -32,13 +32,16 @@ namespace WinPaint
         private async  void _view_ImageChanged(object sender, EventArgs e)
         {
             _currentImage = _view.ContentImage;
+            _view.SetContorlEnable(false);
+            _view.SetMassPoint();
             _invert = new Inverter(_currentImage);
-
-            _invert.ProcessChanged += _view.SetImage;
-
-            bool cancelled =  await Task<bool>.Factory.StartNew(_invert.Work);
+            _invert.ProcessChanged += _view.SetImage;   
+            
+                    
+             bool cancelled =  await Task<bool>.Factory.StartNew(_invert.Work);
 
             string message = cancelled ? "Процесс отменен" : "Процесс завершен!";
+            _view.SetContorlEnable(true);
             _messageService.ShowMessage(message);
         }
 

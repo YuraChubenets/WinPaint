@@ -32,23 +32,19 @@ namespace WinPaint.BL
                 for (int j = 0; j < bmap.Height; j++)
                 {
                     if (_cancell)
-                        break;                   
-                        try
-                        {
-                            c = bmap.GetPixel(i, j);
-                            bmap.SetPixel(i, j, Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
-                            Task.Delay(10);
-                        }
-                        catch(Exception ex)
-                        {
-                            string.Format(ex.Message);
-                        }
-                }                   
-               _image = (Bitmap)bmap.Clone();  
-                OnProgressChanged(_image);                
+                        break;
+                    try {
+                        c = bmap.GetPixel(i, j);
+                        bmap.SetPixel(i, j, Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
+                    }
+                    catch { }
+                }
+                Thread.Sleep(1);
+                OnProgressChanged((Bitmap)bmap.Clone());
             }
-          bmap.Dispose();      
-          return _cancell;
+            
+            bmap.Dispose();
+            return _cancell;
         }
 
         public void OnProgressChanged( Image image)

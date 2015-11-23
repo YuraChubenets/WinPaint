@@ -55,7 +55,6 @@
             this.btnGrayscale = new System.Windows.Forms.Button();
             this.lblEffect = new System.Windows.Forms.Label();
             this.lblOclock = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
@@ -308,14 +307,6 @@
             this.lblOclock.TabIndex = 17;
             this.lblOclock.Text = "00:00:00";
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(270, 160);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(261, 23);
-            this.progressBar1.TabIndex = 18;
-            this.progressBar1.Visible = false;
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -336,7 +327,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 361);
             this.Controls.Add(this.btnFill);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lblOclock);
             this.Controls.Add(this.lblEffect);
             this.Controls.Add(this.btnGrayscale);
@@ -353,7 +343,6 @@
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
-            this.DoubleBuffered = true;
             this.MinimumSize = new System.Drawing.Size(500, 400);
             this.Name = "MainForm";
             this.Text = "WinPaint";
@@ -394,7 +383,6 @@
         private System.Windows.Forms.Button btnGrayscale;
         private System.Windows.Forms.Label lblEffect;
         private System.Windows.Forms.Label lblOclock;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;

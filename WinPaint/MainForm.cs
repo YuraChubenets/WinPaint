@@ -33,6 +33,8 @@ namespace WinPaint
         string ImagePath { get; set; }
         Item CurrentItem { get; set; }
         Image ContentImage { get; set;}
+        void SetContorlEnable(bool flag);
+        void SetMassPoint();
 
         event EventHandler ImageOpenClick;
         event EventHandler ImageSaveClick;
@@ -68,7 +70,7 @@ namespace WinPaint
                 {
                     try {
                         Invoke((Action)(() => lblOclock.Text = DateTime.Now.ToLongTimeString()));
-                        Task.Delay(1000);
+                        Thread.Sleep(1000);
                     }
                     catch (ObjectDisposedException err)
                     {
@@ -82,12 +84,7 @@ namespace WinPaint
         }
 
         #region IWinPaint              
-        public Image SetImage(Image img)
-        {
-              this.InvokeEx(() =>  {  pictureBox1.Image = img;  });      
-              return img;
-        }        
-
+       
         public string ImagePath { get; set; }
         public Item CurrentItem { get; set; }
 
@@ -113,19 +110,12 @@ namespace WinPaint
 
         private void btnInvert_Click(object sender, EventArgs e)
         {
-            Action action = () => {
-                this.InvokeEx(()=> { 
-                var bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                pictureBox1.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
-                ContentImage = bitmap;
-
-                if (ImageChanged != null)
-                    ImageChanged(this, e);
-                massPoints.Clear();
-            });
-
-            };
-            Task task = Task.Factory.StartNew(action);
+            var bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            pictureBox1.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
+            ContentImage = bitmap;  
+                       if (ImageChanged != null)                    
+                        ImageChanged(this, e);
+       
         }
 
         private void btnChCol_Click(object sender, EventArgs e)
@@ -169,36 +159,14 @@ namespace WinPaint
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             isdraw = true;
-            //current coord
             x = e.X;
-            y = e.Y;
-           
-            //point
-            //Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
-            switch (CurrentItem)
-            {
-                
-                case (Item.Pencil):
-                    {                                             
-                       // massPoints.Add(new BmpMatrixPoint(new Point[] { (new Point(x, y)), (new Point(lx, ly)) }, lw, currentColor));
-                        //-------------
-                    }
-                    break;
-
-              
-                case (Item.Erase):
-                    {
-                        
-                    }
-                    break;
-            }
+            y = e.Y;           
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             isdraw = false;
-
-            switch (CurrentItem)
+           switch (CurrentItem)
             {
                 case (Item.Pencil):
                     {
@@ -206,7 +174,6 @@ namespace WinPaint
 
                     }
                     break;
-
                 case (Item.Line):
                     {
                         massPoints.Add(
@@ -217,8 +184,8 @@ namespace WinPaint
                     break;
                 case (Item.Rectangle):
                     {
-                        //if (x == lx | y == ly)
-                        //   return;
+                        if (x == lx | y == ly)
+                            return;
                         GraphicsPath shape1 = new GraphicsPath();
                         shape1.AddRectangle(GetRectangleFromPoints(new Point(x, y), new Point(lx, ly)));
 
@@ -478,13 +445,6 @@ namespace WinPaint
         {
             massPoints.Clear();
             pictureBox1.CreateGraphics().Clear(Color.White);
-
-            if (pictureBox1.Image != null)
-            {
-                pictureBox1.Image.Dispose();
-                pictureBox1.Image = null;
-            }
-
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
@@ -508,11 +468,34 @@ namespace WinPaint
                 var bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);   
                 ContentImage = bitmap;                         
                 pictureBox1.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
- 
+                SetImage(bitmap);
                                
                  if (ImageSaveClick != null)
                        ImageSaveClick(this, e);
             }
-        }      
+        }
+
+        public void SetContorlEnable(bool flag)
+        {
+            this.InvokeEx(() =>
+            {
+                this.Enable(flag);
+
+            });
+        }
+ 
+        public void SetMassPoint()
+        {
+            this.InvokeEx(() => { 
+            massPoints.Clear();});
+        }
+        public Image SetImage(Image img)
+        {
+            this.InvokeEx(() => {
+                ContentImage = img;
+                pictureBox1.Image = img; });
+            return img;
+        }
+
     }
 }
