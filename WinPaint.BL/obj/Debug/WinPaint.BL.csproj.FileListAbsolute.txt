@@ -42,3 +42,13 @@ C:\Users\Юрий\Desktop\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
 C:\Users\Юрий\Desktop\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.csprojResolveAssemblyReference.cache
 C:\Users\Юрий\Desktop\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.dll
 C:\Users\Юрий\Desktop\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.pdb
+C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.dll
+C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
+C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.csprojResolveAssemblyReference.cache
+C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.dll
+C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.pdb
+C:\Users\Юрий\Desktop\WinPaint-master001\WinPaint-master001\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.dll
+C:\Users\Юрий\Desktop\WinPaint-master001\WinPaint-master001\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
+C:\Users\Юрий\Desktop\WinPaint-master001\WinPaint-master001\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.csprojResolveAssemblyReference.cache
+C:\Users\Юрий\Desktop\WinPaint-master001\WinPaint-master001\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.dll
+C:\Users\Юрий\Desktop\WinPaint-master001\WinPaint-master001\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.pdb

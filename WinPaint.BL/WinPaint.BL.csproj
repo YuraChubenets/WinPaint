@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleHelper.cs" />
     <Compile Include="Inverter.cs" />
     <Compile Include="MessageService.cs" />
     <Compile Include="PaintManager.cs" />
