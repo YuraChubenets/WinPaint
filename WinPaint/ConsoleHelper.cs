@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace WinPaint
+namespace WinPaint.BL
 {
   public static  class ConsoleHelper
     {

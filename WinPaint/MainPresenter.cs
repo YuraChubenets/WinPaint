@@ -13,8 +13,10 @@ namespace WinPaint
         private readonly IPaintManager _manager;
         private readonly IMessageService _messageService;
 
+
+        private Inverter _invert;
         private Image _currentImage;
-        Inverter _invert;
+       
 
         public MainPresenter(IWinPaint view, IPaintManager manager, IMessageService messageService)
         {
@@ -23,25 +25,49 @@ namespace WinPaint
             _messageService = messageService;
 
             _view.CurrentItem = Item.Pencil;
+            _view.InitialSetings();
 
             _view.ImageOpenClick += _view_ImageOpenClick;
             _view.ImageSaveClick += _view_ImageSaveClick;
-            _view.ImageChanged += _view_ImageChanged;
+            _view.ImageInvert += _view_ImageInvert;
+            _view.ImageGrayscale += _view_ImageGrayscale;
+            _view.ImageNewClick += _view_ImageNewClick;
         }
 
-        private async  void _view_ImageChanged(object sender, EventArgs e)
+        private void _view_ImageNewClick(object sender, EventArgs e)
+        {
+            _view.InitialSetings();
+        }
+
+        private async void _view_ImageGrayscale(object sender, EventArgs e)
         {
             _currentImage = _view.ContentImage;
+            _view.InitialSetings();
             _view.SetContorlEnable(false);
-            _view.SetMassPoint();
+
             _invert = new Inverter(_currentImage);
-            _invert.ProcessChanged += _view.SetImage;   
-            
-                    
-             bool cancelled =  await Task<bool>.Factory.StartNew(_invert.Work);
+            _invert.ProcessChanged += _view.SetImage;
+
+            bool cancelled = await Task<bool>.Factory.StartNew(_invert.WorkCrayscale);
 
             string message = cancelled ? "Процесс отменен" : "Процесс завершен!";
             _view.SetContorlEnable(true);
+            _messageService.ShowMessage(message);
+        }
+
+        private async  void _view_ImageInvert(object sender, EventArgs e)
+        {
+            _currentImage = _view.ContentImage;
+            _view.InitialSetings();
+            _view.SetContorlEnable(false);
+           
+            _invert = new Inverter(_currentImage);
+            _invert.ProcessChanged += _view.SetImage;               
+                    
+            bool cancelled =  await Task<bool>.Factory.StartNew(_invert.WorkInvert);
+
+            string message = cancelled ? "Процесс отменен" : "Процесс завершен!";
+            _view.SetContorlEnable(true);         
             _messageService.ShowMessage(message);
         }
 
