@@ -28,57 +28,41 @@ namespace WinPaint.BL
         {
             Bitmap bmap = (Bitmap)_image;
 
-            //ImageAttributes ia = new ImageAttributes();
-            //ColorMatrix cm = null;
-            //Graphics g = null;
+            ImageAttributes ia = new ImageAttributes();
+            ColorMatrix cm = null;
+            Graphics g = null;
 
-            //   g = Graphics.FromImage(bmap);
+            g = Graphics.FromImage(bmap);
 
-            //cm = new ColorMatrix(
-            //           new float[][]
-            //           {
-            //               new float[] {-1, 0, 0, 0, 0},
-            //               new float[] {0, -1, 0, 0, 0},
-            //               new float[] {0, 0, -1, 0, 0},
-            //               new float[] {0, 0, 0, 1, 0},
-            //               new float[] {1, 1, 1, 0, 1}
-            //           });
-            //ia.SetColorMatrix(cm);
+            cm = new ColorMatrix(
+                       new float[][]
+                       {
+                           new float[] {-1, 0, 0, 0, 0},
+                           new float[] {0, -1, 0, 0, 0},
+                           new float[] {0, 0, -1, 0, 0},
+                           new float[] {0, 0, 0, 1, 0},
+                           new float[] {1, 1, 1, 0, 1}
+                       });
+            ia.SetColorMatrix(cm);
 
-            //g.DrawImage(bmap, new Rectangle(0, 0, bmap.Width, bmap.Height),
-            //0, 0, bmap.Width, bmap.Height, GraphicsUnit.Pixel, ia);
-            //Thread.Sleep(50);
-            //OnProgressChanged((Bitmap)bmap.Clone());        
+            g.DrawImage(bmap, new Rectangle(0, 0, bmap.Width, bmap.Height),
+            0, 0, bmap.Width, bmap.Height, GraphicsUnit.Pixel, ia);
+            Thread.Sleep(50);
+            OnProgressChanged((Bitmap)bmap.Clone());
 
-            //if (_image != null)
-            //    _image.Dispose();
-            //bmap.Dispose();
-            //g.Dispose();
-
-            Color c;
-            for (int i = 0; i < bmap.Width; i++)
-            {
-                for (int j = 0; j < bmap.Height; j++)
-                {
-                    if (_cancell)
-                        break;
-                    try
-                    {
-                        c = bmap.GetPixel(i, j);
-                        bmap.SetPixel(i, j, Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
-                    }
-                    catch { }
-                }
-                Thread.Sleep(1);
-                OnProgressChanged((Bitmap)bmap.Clone());
-            }
+            if (_image != null)
+                _image.Dispose();
             bmap.Dispose();
+            g.Dispose();
+
+
             return _cancell;
         }
 
         public bool WorkCrayscale()
         {
             Bitmap bmap = (Bitmap)_image;
+
             ImageAttributes ia = new ImageAttributes();
             ColorMatrix cm = null;
             Graphics g = null;
@@ -86,11 +70,11 @@ namespace WinPaint.BL
             g = Graphics.FromImage(bmap);
             cm = new ColorMatrix(new float[][]
                     {
-                         new float[] { 0, 0, 0, 0, 0},
-                         new float[] { 0, 0, 0, 0, 0},
-                         new float[] { 0, 0, 0, 0, 0},
-                         new float[] { 0, 0, 0, 0.25f, 0},
-                         new float[] { 0, 0, 0, 0, 0}
+                        new float[] {.3f, .3f, .3f, 0, 0},
+                        new float[] {.59f, .59f, .59f, 0, 0},
+                        new float[] {.11f, .11f, .11f, 0, 0},
+                        new float[] {0, 0, 0, 1, 0},
+                        new float[] {0, 0, 0, 0, 1}
 
                     });
             ia.SetColorMatrix(cm);
@@ -98,10 +82,12 @@ namespace WinPaint.BL
             g.DrawImage(bmap, new Rectangle(0, 0, bmap.Width, bmap.Height),
             0, 0, bmap.Width, bmap.Height, GraphicsUnit.Pixel, ia);
             OnProgressChanged((Bitmap)bmap.Clone());
+
             Thread.Sleep(500);         
 
             bmap.Dispose();
             g.Dispose();
+
             if (_image != null)
                 _image.Dispose();
             return _cancell;
@@ -113,6 +99,7 @@ namespace WinPaint.BL
             if (ProcessChanged != null)
                 ProcessChanged(image);
         }
+
         public event Func<Image,Image> ProcessChanged;
     }
 }

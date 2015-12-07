@@ -49,21 +49,23 @@ namespace WinPaint
         int x, y, lx, ly;
         float lw ;
         List<BmpMatrixPoint> massPoints;
+        bool toggle;
         
        public void InitialSetings()
         {
-            currentColor = Color.Red;
+            currentColor = Color.Black;
             fillColor = Color.Empty;
             CurrentItem = Item.Pencil;           
             isdraw = false;
+            toggle = false;
             x = 0;  y = 0;  lx = 0;  ly = 0;
             lw = 1.0f;
             massPoints = new List<BmpMatrixPoint>();
 
             pictureBox1.CreateGraphics().Clear(Color.White);
-            pictureBox2.BackColor = currentColor;
-            pictureBox3.BackColor = fillColor;
-
+            pictureBox2.BackColor = Color.Black;
+            btnFill.BackColor = Color.Empty;
+           
             if (pictureBox1.Image != null)
             {
                 pictureBox1.Image = null;
@@ -84,17 +86,19 @@ namespace WinPaint
            
         }
 
-        private  async void MainForm_Load(object sender, EventArgs e)
+        private  void MainForm_Load(object sender, EventArgs e)
         {
             Action action = () =>
             {
                 while (true)
                 {
-                    Invoke((Action)(() => lblOclock.Text = DateTime.Now.ToLongTimeString()));
+                    Invoke((Action)(() =>
+                    lblOclock.Text = DateTime.Now.ToLongTimeString()
+                    ));
                     Thread.Sleep(1000);
                 }
             };
-          await  Task.Factory.StartNew(action);
+          Task.Factory.StartNew(action);          
         }
 
         #region IWinPaint              
@@ -110,27 +114,28 @@ namespace WinPaint
         public event EventHandler ImageNewClick;
         #endregion
 
-        private void btnInvert_Click(object sender, EventArgs e)
+        private async void btnInvert_Click(object sender, EventArgs e)
         {
             var bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));       
             ContentImage = bitmap;
-            
 
-            if (ImageInvert != null)
+            await Task.Factory.StartNew(() => {
+                if (ImageInvert != null)
                 ImageInvert(this, EventArgs.Empty);
+            }, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.FromCurrentSynchronizationContext());
+
         }
 
-        private void btnGrayscale_Click(object sender, EventArgs e)
+        private async  void btnGrayscale_Click(object sender, EventArgs e)
         {
             var bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
             ContentImage = bitmap;
 
-
-            if (ImageGrayscale != null)
+               if (ImageGrayscale != null)
                 ImageGrayscale(this, EventArgs.Empty);
-
+         await   Task.Delay(5000);
         }
 
         private void btnChCol_Click(object sender, EventArgs e)
@@ -166,13 +171,22 @@ namespace WinPaint
         
         private void btnFill_Click(object sender, EventArgs e)
         {
-            pictureBox3.BackColor = currentColor;
-            fillColor = currentColor;                              
+            if(!toggle)
+            {
+                toggle = true;
+                SetColorFill(currentColor);
+            }
+            else
+            {
+                toggle = false;
+                SetColorFill(Color.Empty);
+            }
         }
 
         public void SetColorFill(Color color)
         {
-            pictureBox3.BackColor = color;
+            btnFill.BackColor = color;
+            fillColor = color;
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
