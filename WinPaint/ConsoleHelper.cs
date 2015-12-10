@@ -8,29 +8,28 @@ namespace WinPaint.BL
         public static void InvokeEx(this Control control, Action action)
         {
                     if (control.InvokeRequired)
-                        control.Invoke(action);
+                        control.Invoke(new MethodInvoker(action));
                     else
                         action();
-
         }
 
-        public static void Enable(this Control con, bool enable)
-        {
-            if (con != null)
-            {
-                foreach (Control c in con.Controls)
-                {
-                    c.Enable(enable);
-                }
+        //public static void Enable(this Control con, bool flag)
+        //{
+        //    if (con != null)
+        //    {
+        //        foreach (Control c in con.Controls)
+        //        {
+        //            c.Enable(flag);
+        //        }
 
-                try
-                {
-                    con.Invoke((MethodInvoker)(() => con.Enabled = enable));
-                }
-                catch
-                {
-                }
-            }
-        }
+        //        try
+        //        {
+        //            con.Invoke((MethodInvoker)(() => con.Enabled = flag));
+        //        }
+        //        catch
+        //        {
+        //        }
+        //    }
+        //}
     }
 }

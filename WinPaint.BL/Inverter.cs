@@ -2,16 +2,12 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+
 
 namespace WinPaint.BL
 {
   public  class Inverter
     {
-
         private bool _cancell = false;
         private Image _image;
         public void Cancel()
@@ -26,80 +22,72 @@ namespace WinPaint.BL
 
         public bool WorkInvert()
         {
-            Bitmap bmap = (Bitmap)_image;
 
-            ImageAttributes ia = new ImageAttributes();
-            ColorMatrix cm = null;
-            Graphics g = null;
+            using (Bitmap bmapInvert = (Bitmap)_image)
+            {
+                ImageAttributes ia = new ImageAttributes();
+                ColorMatrix cm = null;
 
-            g = Graphics.FromImage(bmap);
+                using (Graphics g1 = Graphics.FromImage(bmapInvert))
+                {
 
-            cm = new ColorMatrix(
-                       new float[][]
-                       {
+                    cm = new ColorMatrix(
+                               new float[][]
+                               {
                            new float[] {-1, 0, 0, 0, 0},
                            new float[] {0, -1, 0, 0, 0},
                            new float[] {0, 0, -1, 0, 0},
                            new float[] {0, 0, 0, 1, 0},
                            new float[] {1, 1, 1, 0, 1}
-                       });
-            ia.SetColorMatrix(cm);
+                               });
+                    ia.SetColorMatrix(cm);
 
-            g.DrawImage(bmap, new Rectangle(0, 0, bmap.Width, bmap.Height),
-            0, 0, bmap.Width, bmap.Height, GraphicsUnit.Pixel, ia);
-            Thread.Sleep(50);
-            OnProgressChanged((Bitmap)bmap.Clone());
+                    g1.DrawImage(bmapInvert, new Rectangle(0, 0, bmapInvert.Width, bmapInvert.Height),
+                    0, 0, bmapInvert.Width, bmapInvert.Height, GraphicsUnit.Pixel, ia);
 
-            if (_image != null)
-                _image.Dispose();
-            bmap.Dispose();
-            g.Dispose();
-
-
+                    OnProgressChanged((Bitmap)bmapInvert.Clone());
+                }
+            }
             return _cancell;
         }
 
         public bool WorkCrayscale()
         {
-            Bitmap bmap = (Bitmap)_image;
 
-            ImageAttributes ia = new ImageAttributes();
-            ColorMatrix cm = null;
-            Graphics g = null;
+            using (Bitmap bmap = (Bitmap)_image)
+            {
+                ImageAttributes ia = new ImageAttributes();
+                ColorMatrix cm = null;
+                using (Graphics g = Graphics.FromImage(bmap))
+                {
 
-            g = Graphics.FromImage(bmap);
-            cm = new ColorMatrix(new float[][]
-                    {
+                    cm = new ColorMatrix(new float[][]
+                        {
                         new float[] {.3f, .3f, .3f, 0, 0},
                         new float[] {.59f, .59f, .59f, 0, 0},
                         new float[] {.11f, .11f, .11f, 0, 0},
                         new float[] {0, 0, 0, 1, 0},
                         new float[] {0, 0, 0, 0, 1}
 
-                    });
-            ia.SetColorMatrix(cm);
+                        });
+                    ia.SetColorMatrix(cm);
 
-            g.DrawImage(bmap, new Rectangle(0, 0, bmap.Width, bmap.Height),
-            0, 0, bmap.Width, bmap.Height, GraphicsUnit.Pixel, ia);
-            OnProgressChanged((Bitmap)bmap.Clone());
+                    g.DrawImage(bmap, new Rectangle(0, 0, bmap.Width, bmap.Height),
+                    0, 0, bmap.Width, bmap.Height, GraphicsUnit.Pixel, ia);
+                    OnProgressChanged((Bitmap)bmap.Clone());
 
-            Thread.Sleep(500);         
-
-            bmap.Dispose();
-            g.Dispose();
-
-            if (_image != null)
-                _image.Dispose();
-            return _cancell;
+                }
+            }
+                return _cancell;
         }
 
 
-        public void OnProgressChanged( Image image)
+        public void OnProgressChanged( Image im)
         {
             if (ProcessChanged != null)
-                ProcessChanged(image);
+                ProcessChanged(im);
         }
 
-        public event Func<Image,Image> ProcessChanged;
+        public event Action<Image> ProcessChanged;
     }
 }

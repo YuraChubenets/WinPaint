@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using WinPaint.BL;
 
@@ -15,8 +16,7 @@ namespace WinPaint
 
 
         private Inverter _invert;
-        private Image _currentImage;
-       
+        private Progressived _worker;       
 
         public MainPresenter(IWinPaint view, IPaintManager manager, IMessageService messageService)
         {
@@ -41,11 +41,22 @@ namespace WinPaint
 
         private async void _view_ImageGrayscale(object sender, EventArgs e)
         {
-            _currentImage = _view.ContentImage;
+           
             _view.InitialSetings();
             _view.SetContorlEnable(false);
 
-            _invert = new Inverter(_currentImage);
+            //-----
+            _worker = new Progressived(200);
+            _worker.ProcessChanged += _view.ShowProgress;
+            //---
+
+            //---
+            _invert = new Inverter(_view.ContentImage);
+            _invert.ProcessChanged += _view.SetImage;
+
+            await Task<bool>.Factory.StartNew(_worker.WorkProgress);
+
+            _invert = new Inverter(_view.ContentImage);
             _invert.ProcessChanged += _view.SetImage;
 
             bool cancelled = await Task<bool>.Factory.StartNew(_invert.WorkCrayscale);
@@ -56,18 +67,26 @@ namespace WinPaint
         }
 
         private async  void _view_ImageInvert(object sender, EventArgs e)
-        {
-            _currentImage = _view.ContentImage;
+        {           
             _view.InitialSetings();
-            _view.SetContorlEnable(false);
+            _view.SetContorlEnable(false);           
+  
+            //-----
+            _worker = new Progressived(200);
+            _worker.ProcessChanged += _view.ShowProgress;
+             //---
+            _invert = new Inverter(_view.ContentImage);
+            _invert.ProcessChanged += _view.SetImage;         
            
-            _invert = new Inverter(_currentImage);
-            _invert.ProcessChanged += _view.SetImage;               
-                    
-            bool cancelled =  await Task<bool>.Factory.StartNew(_invert.WorkInvert);
+            await  Task<bool>.Factory.StartNew(_worker.WorkProgress);
 
-            string message = cancelled ? "Процесс отменен" : "Процесс завершен!";
-            _view.SetContorlEnable(true);         
+            _invert = new Inverter(_view.ContentImage);
+            _invert.ProcessChanged += _view.SetImage;
+
+            bool cancelled = await Task<bool>.Factory.StartNew(_invert.WorkInvert);
+
+           string message = cancelled ? "Процесс отменен" : "Процесс завершен!";
+            _view.SetContorlEnable(true);
             _messageService.ShowMessage(message);
         }
 
@@ -82,9 +101,8 @@ namespace WinPaint
                 {
                     _messageService.ShowExclamation("Выбранный файл не существует");
                     return;
-                }
-                _currentImage = _manager.GetImage(filePath);
-                _view.SetImage((Bitmap)_currentImage);
+                }              
+                _view.SetImage((Bitmap) _manager.GetImage(filePath));
             }
             catch (Exception ex)
             {

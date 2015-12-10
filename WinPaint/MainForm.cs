@@ -5,14 +5,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WinPaint.BL;
 
 namespace WinPaint
 {
@@ -27,12 +22,14 @@ namespace WinPaint
 
     public interface IWinPaint
     {
-        Image SetImage(Image img);
+        void SetImage(Image img);
         string ImagePath { get; set; }
         Item CurrentItem { get; set; }
         Image ContentImage { get; set;}
         void SetContorlEnable(bool flag);
         void InitialSetings();
+
+        void ShowProgress(int progressPercentage);
  
         event EventHandler ImageOpenClick;
         event EventHandler ImageSaveClick;
@@ -92,9 +89,9 @@ namespace WinPaint
             {
                 while (true)
                 {
-                    Invoke((Action)(() =>
-                    lblOclock.Text = DateTime.Now.ToLongTimeString()
-                    ));
+                   this.InvokeEx(() => {
+                        lblOclock.Text = DateTime.Now.ToLongTimeString();                        
+                   });
                     Thread.Sleep(1000);
                 }
             };
@@ -119,12 +116,10 @@ namespace WinPaint
             var bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));       
             ContentImage = bitmap;
-
-            await Task.Factory.StartNew(() => {
-                if (ImageInvert != null)
-                ImageInvert(this, EventArgs.Empty);
-            }, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.FromCurrentSynchronizationContext());
-
+            
+            if (ImageInvert != null)
+                await Task.Factory.StartNew(() => { ImageInvert(this, EventArgs.Empty); });
+           
         }
 
         private async  void btnGrayscale_Click(object sender, EventArgs e)
@@ -133,9 +128,8 @@ namespace WinPaint
             pictureBox1.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
             ContentImage = bitmap;
 
-               if (ImageGrayscale != null)
-                ImageGrayscale(this, EventArgs.Empty);
-         await   Task.Delay(5000);
+            if (ImageGrayscale != null)
+                await Task.Factory.StartNew(() => {ImageGrayscale(this, EventArgs.Empty); });        
         }
 
         private void btnChCol_Click(object sender, EventArgs e)
@@ -475,19 +469,27 @@ namespace WinPaint
 
         public void SetContorlEnable(bool flag)
         {
-            this.InvokeEx(() =>
-            {
-                this.Enable(flag);
+            this.InvokeEx(() => {
+                this.progressBar1.Visible = !flag;
+                this.pictureBox1.Enabled = flag;
             });           
         }
 
-        public Image SetImage(Image img)
+        public void SetImage(Image img)
         {
             this.InvokeEx(() => {
                 ContentImage = img;
                 pictureBox1.Image = img; });
-            return img;
+           
         }
+        
 
+        public void ShowProgress(int progressPercentage)
+        {
+            this.InvokeEx(() => {
+                progressBar1.Value = progressPercentage+1;
+                progressBar1.Value = progressPercentage;
+            });
+        }
     }
 }
