@@ -1,64 +1,10 @@
-C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint.BL\bin\Debug\WinPaint.BL.dll
-C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
-C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.csprojResolveAssemblyReference.cache
-C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.dll
-C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint.BL\bin\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.csprojResolveAssemblyReference.cache
-C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.pdb
+D:\Projects\WinPaint\WinPaint.BL\bin\Debug\WinPaint.BL.dll
+D:\Projects\WinPaint\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
+D:\Projects\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.csprojResolveAssemblyReference.cache
+D:\Projects\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.dll
+D:\Projects\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.pdb
 D:\WinPaint\WinPaint.BL\bin\Debug\WinPaint.BL.dll
 D:\WinPaint\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
 D:\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.csprojResolveAssemblyReference.cache
 D:\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.dll
 D:\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.csprojResolveAssemblyReference.cache
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.pdb
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.csprojResolveAssemblyReference.cache
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.dll
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.dll
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint.BL\bin\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.csprojResolveAssemblyReference.cache
-C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint.BL\obj\Debug\WinPaint.BL.pdb
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.dll
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.csprojResolveAssemblyReference.cache
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.dll
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint-000\WinPaint-master\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint-000\WinPaint-master\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint-000\WinPaint-master\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint-000\WinPaint-master\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.csprojResolveAssemblyReference.cache
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.pdb
-C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.dll
-C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
-C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.csprojResolveAssemblyReference.cache
-C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.dll
-C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.pdb
-C:\Users\chubenets\Desktop\WinPaint-master001\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.dll
-C:\Users\chubenets\Desktop\WinPaint-master001\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
-C:\Users\chubenets\Desktop\WinPaint-master001\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.csprojResolveAssemblyReference.cache
-C:\Users\chubenets\Desktop\WinPaint-master001\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.dll
-C:\Users\chubenets\Desktop\WinPaint-master001\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\edisk_files\WinPaint-1647\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\edisk_files\WinPaint-1647\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\edisk_files\WinPaint-1647\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.csprojResolveAssemblyReference.cache
-C:\Users\Юрий\Desktop\edisk_files\WinPaint-1647\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\edisk_files\WinPaint-1647\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint-master\WinPaint.BL\bin\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.csprojResolveAssemblyReference.cache
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint-master\WinPaint.BL\obj\Debug\WinPaint.BL.pdb

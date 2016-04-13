@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B1516E43-0503-488D-8707-D26C7C29728A}</ProjectGuid>
+    <ProjectGuid>{1541EBED-BDA9-4A9C-8BF9-341168892232}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WinPaint.BL</RootNamespace>
     <AssemblyName>WinPaint.BL</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -42,12 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleHelper.cs" />
-    <Compile Include="Inverter.cs" />
-    <Compile Include="MessageService.cs" />
+    <Compile Include="IPaintManager.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="IWinPaint.cs" />
+    <Compile Include="MessageServise.cs" />
     <Compile Include="PaintManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Progressived.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

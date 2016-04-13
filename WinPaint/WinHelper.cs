@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace WinPaint
 {
-    public static class ConsoleHelper
+    public static class WinHelper
     {
         public static void InvokeEx(this Control control, Action action)
         {
@@ -14,10 +14,9 @@ namespace WinPaint
                 else
                     action();
             }
-            catch (ObjectDisposedException err)
+            catch (Exception e)
             {
-                Application.ExitThread();    
-                          
+                Application.ExitThread();
             }
         }
     }

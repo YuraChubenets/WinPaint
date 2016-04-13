@@ -1,26 +1,17 @@
-C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\bin\Debug\WinPaint.exe.config
-C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\bin\Debug\WinPaint.exe
-C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\bin\Debug\WinPaint.pdb
-C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.csprojResolveAssemblyReference.cache
-C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
-C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
-C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.exe
-C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.pdb
-C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\bin\Debug\WinPaint.BL.dll
-C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\bin\Debug\WinPaint.BL.pdb
-C:\Users\chubenets\Documents\Visual Studio 2013\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.MainForm.resources
-C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\bin\Debug\WinPaint.exe.config
-C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\obj\Debug\WinPaint.exe
-C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\obj\Debug\WinPaint.pdb
-C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\bin\Debug\WinPaint.exe
-C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\bin\Debug\WinPaint.pdb
-C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\bin\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\bin\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\obj\Debug\WinPaint.csprojResolveAssemblyReference.cache
-C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\obj\Debug\WinPaint.MainForm.resources
-C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
-C:\Users\Юрий\Desktop\WinPaint (1)\WinPaint\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
+D:\Projects\WinPaint\WinPaint\bin\Debug\WinPaint.exe.config
+D:\Projects\WinPaint\WinPaint\bin\Debug\WinPaint.exe
+D:\Projects\WinPaint\WinPaint\bin\Debug\WinPaint.pdb
+D:\Projects\WinPaint\WinPaint\bin\Debug\WinPaint.BL.dll
+D:\Projects\WinPaint\WinPaint\bin\Debug\WinPaint.BL.pdb
+D:\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.csprojResolveAssemblyReference.cache
+D:\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.MainForm.resources
+D:\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
+D:\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
+D:\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.exe
+D:\Projects\WinPaint\WinPaint\obj\Debug\WinPaint.pdb
 D:\WinPaint\WinPaint\bin\Debug\WinPaint.exe.config
+D:\WinPaint\WinPaint\obj\Debug\WinPaint.exe
+D:\WinPaint\WinPaint\obj\Debug\WinPaint.pdb
 D:\WinPaint\WinPaint\bin\Debug\WinPaint.exe
 D:\WinPaint\WinPaint\bin\Debug\WinPaint.pdb
 D:\WinPaint\WinPaint\bin\Debug\WinPaint.BL.dll
@@ -29,115 +20,3 @@ D:\WinPaint\WinPaint\obj\Debug\WinPaint.csprojResolveAssemblyReference.cache
 D:\WinPaint\WinPaint\obj\Debug\WinPaint.MainForm.resources
 D:\WinPaint\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
 D:\WinPaint\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
-D:\WinPaint\WinPaint\obj\Debug\WinPaint.exe
-D:\WinPaint\WinPaint\obj\Debug\WinPaint.pdb
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe.config
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.exe
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.pdb
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.pdb
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.csprojResolveAssemblyReference.cache
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.MainForm.resources
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe.config
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint\obj\Debug\WinPaint.csprojResolveAssemblyReference.cache
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint\obj\Debug\WinPaint.MainForm.resources
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint\bin\Debug\WinPaint.pdb
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.dll
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.pdb
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint\obj\Debug\WinPaint.exe
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint\obj\Debug\WinPaint.pdb
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe.config
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint\obj\Debug\WinPaint.exe
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint\obj\Debug\WinPaint.pdb
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint\bin\Debug\WinPaint.pdb
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint\obj\Debug\WinPaint.csprojResolveAssemblyReference.cache
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint\obj\Debug\WinPaint.MainForm.resources
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
-C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint\bin\Debug\WinPaint.exe.config
-C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint\obj\Debug\WinPaint.exe
-C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint\obj\Debug\WinPaint.pdb
-C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint\bin\Debug\WinPaint.exe
-C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint\bin\Debug\WinPaint.pdb
-C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint\bin\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint\bin\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint\obj\Debug\WinPaint.csprojResolveAssemblyReference.cache
-C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint\obj\Debug\WinPaint.MainForm.resources
-C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
-C:\Users\Юрий\Desktop\WinPaint\WinPaint\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe.config
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.pdb
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.dll
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.pdb
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.csprojResolveAssemblyReference.cache
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.MainForm.resources
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.exe
-C:\Users\chubenets\Desktop\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.pdb
-C:\Users\Юрий\Desktop\WinPaint-000\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe.config
-C:\Users\Юрий\Desktop\WinPaint-000\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe
-C:\Users\Юрий\Desktop\WinPaint-000\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.pdb
-C:\Users\Юрий\Desktop\WinPaint-000\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint-000\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint-000\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.csprojResolveAssemblyReference.cache
-C:\Users\Юрий\Desktop\WinPaint-000\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.MainForm.resources
-C:\Users\Юрий\Desktop\WinPaint-000\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
-C:\Users\Юрий\Desktop\WinPaint-000\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
-C:\Users\Юрий\Desktop\WinPaint-000\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.exe
-C:\Users\Юрий\Desktop\WinPaint-000\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.pdb
-C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe.config
-C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe
-C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint\bin\Debug\WinPaint.pdb
-C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.dll
-C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.pdb
-C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint\obj\Debug\WinPaint.csprojResolveAssemblyReference.cache
-C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint\obj\Debug\WinPaint.MainForm.resources
-C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
-C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
-C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint\obj\Debug\WinPaint.exe
-C:\Users\chubenets\Desktop\WinPaint-master000\WinPaint-master\WinPaint\obj\Debug\WinPaint.pdb
-C:\Users\chubenets\Desktop\WinPaint-master001\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe.config
-C:\Users\chubenets\Desktop\WinPaint-master001\WinPaint-master\WinPaint\obj\Debug\WinPaint.exe
-C:\Users\chubenets\Desktop\WinPaint-master001\WinPaint-master\WinPaint\obj\Debug\WinPaint.pdb
-C:\Users\chubenets\Desktop\WinPaint-master001\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe
-C:\Users\chubenets\Desktop\WinPaint-master001\WinPaint-master\WinPaint\bin\Debug\WinPaint.pdb
-C:\Users\chubenets\Desktop\WinPaint-master001\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.dll
-C:\Users\chubenets\Desktop\WinPaint-master001\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.pdb
-C:\Users\chubenets\Desktop\WinPaint-master001\WinPaint-master\WinPaint\obj\Debug\WinPaint.csprojResolveAssemblyReference.cache
-C:\Users\chubenets\Desktop\WinPaint-master001\WinPaint-master\WinPaint\obj\Debug\WinPaint.MainForm.resources
-C:\Users\chubenets\Desktop\WinPaint-master001\WinPaint-master\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
-C:\Users\chubenets\Desktop\WinPaint-master001\WinPaint-master\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
-C:\Users\Юрий\Desktop\edisk_files\WinPaint-1647\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe.config
-C:\Users\Юрий\Desktop\edisk_files\WinPaint-1647\WinPaint-master\WinPaint\obj\Debug\WinPaint.exe
-C:\Users\Юрий\Desktop\edisk_files\WinPaint-1647\WinPaint-master\WinPaint\obj\Debug\WinPaint.pdb
-C:\Users\Юрий\Desktop\edisk_files\WinPaint-1647\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe
-C:\Users\Юрий\Desktop\edisk_files\WinPaint-1647\WinPaint-master\WinPaint\bin\Debug\WinPaint.pdb
-C:\Users\Юрий\Desktop\edisk_files\WinPaint-1647\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\edisk_files\WinPaint-1647\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\edisk_files\WinPaint-1647\WinPaint-master\WinPaint\obj\Debug\WinPaint.csprojResolveAssemblyReference.cache
-C:\Users\Юрий\Desktop\edisk_files\WinPaint-1647\WinPaint-master\WinPaint\obj\Debug\WinPaint.MainForm.resources
-C:\Users\Юрий\Desktop\edisk_files\WinPaint-1647\WinPaint-master\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
-C:\Users\Юрий\Desktop\edisk_files\WinPaint-1647\WinPaint-master\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe.config
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.exe
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.pdb
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.exe
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.pdb
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.dll
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint-master\WinPaint\bin\Debug\WinPaint.BL.pdb
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.csprojResolveAssemblyReference.cache
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.MainForm.resources
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.Properties.Resources.resources
-C:\Users\Юрий\Desktop\WinPaint-master\WinPaint-master\WinPaint-master\WinPaint\obj\Debug\WinPaint.csproj.GenerateResource.Cache
